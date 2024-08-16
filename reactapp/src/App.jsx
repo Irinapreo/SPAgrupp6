@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar'; // Ensure this path is correct
-import ArticleList from './ArticleList'; // Ensure this path is correct
+import ArticleList from './components/ArticleList'; // Ensure this path is correct
 import Footer from './components/Footer'; // Importing the Footer component
 
 const App = () => {
@@ -10,13 +10,14 @@ const App = () => {
             <main role="main" className="pb-3">
                 <div className="container">
                     <div className="row article-container">
-                        <ArticleList /> {/* This component will fetch and display the articles */}
+                        <ArticleList />
                     </div>
                 </div>
             </main>
-            <Footer /> {/* Adding the Footer component here */}
+            <Footer /> 
         </div>
     );
 };
 
 export default App;
+console.log("App component rendered");
