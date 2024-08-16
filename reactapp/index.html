@@ -1,13 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+<head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <title>Grupp VI - JensensWebApp</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/src/App.css" />
+    <link rel="stylesheet" href="/src/index.css" />
+    <!-- <link rel="stylesheet" href="/css/privacy.css" /> -->
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light navbar-custom border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Grupp VI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-light" id="theme-toggle" onclick="toggleTheme()">Light Theme</button>
+                    <!--
+    <div class="rocket" onclick="startImageChange()">
+        <img src="/Rocket/rocket1.png" alt="Following Image" id="following-image" />
+    </div>
+        -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="row article-container">
+                <!-- Content will be dynamically loaded here for a SPA -->
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="footer-container">
+            &copy; 2024 - JensensWebApp - <a href="/privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- <script>
+         let images = [
+             '/Rocket/Rocket1.png',
+             '/Rocket/Rocket2.png',
+             '/Rocket/Rocket3.png',
+             '/Rocket/Rocket4.png',
+             '/Rocket/Rocket5.png',
+             '/Rocket/Rocket6.png',
+             '/Rocket/Rocket7.png',
+             '/Rocket/Rocket8.png',
+             '/Rocket/Rocket9.png',
+             '/Rocket/Rocket10.png',
+             '/Rocket/Rocket11.png',
+             '/Rocket/Rocket12.png',
+             '/Rocket/Rocket13.png',
+             '/Rocket/Rocket14.png',
+             '/Rocket/Rocket15.png',
+             '/Rocket/Rocket16.png',
+             '/Rocket/Rocket17.png',
+             '/Rocket/Rocket18.png',
+             '/Rocket/Rocket19.png',
+             '/Rocket/Rocket20.png',
+             '/Rocket/Rocket21.png'
+         ];
+
+         function startImageChange() {
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+             let counter = 0;
+             let interval = setInterval(() => {
+                 if (counter >= images.length) {
+                     clearInterval(interval);
+                 } else {
+                     document.getElementById('following-image').src = images[counter];
+                     counter++;
+                 }
+             }, 50);
+         }
+     </script>
+        -->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/js/themeToggle.js"></script>
+    <script src="/js/imageChanger.js"></script>
+    <script src="/js/rocketScroll.js"></script>
+    <script src="/js/borat.js"></script>
+</body>
+
 </html>
