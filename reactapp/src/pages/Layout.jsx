@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for prop validation
-import Navbar from './components/Navbar';
+import Navbar from '../components/Navbar';
 import './Layout.css'; // Import layout-specific styles
 
 const Layout = ({ children }) => {

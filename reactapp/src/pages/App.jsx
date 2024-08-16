@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from './components/Navbar'; // Ensure this path is correct
-import ArticleList from './components/ArticleList'; // Ensure this path is correct
-import Footer from './components/Footer'; // Importing the Footer component
+import Navbar from '../components/Navbar'; // Ensure this path is correct
+import ArticleList from '../components/ArticleList'; // Ensure this path is correct
+import Footer from '../components/Footer'; // Importing the Footer component
 
 const App = () => {
     return (
