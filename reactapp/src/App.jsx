@@ -1,23 +1,20 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout';
 import ArticleList from './components/ArticleList';
 import Privacy from './components/Privacy';
-import Navbar from './components/Navbar';
-import './styles/site.css';
-import './styles/privacy.css';
-import './App.css';
+import './App.css'; // Import global styles
 
 const App = () => {
     return (
         <Router>
-            <div className="App">
-                <Navbar />
+            <Layout>
                 <Routes>
                     <Route path="/" element={<ArticleList />} />
                     <Route path="/privacy" element={<Privacy />} />
                 </Routes>
-            </div>
+            </Layout>
         </Router>
     );
 };

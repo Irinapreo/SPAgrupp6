@@ -1,6 +1,7 @@
 // src/components/Layout.jsx
 import React from 'react';
 import Navbar from './Navbar';
+import './Layout.css'; // Import layout-specific styles
 
 const Layout = ({ children }) => {
     return (

@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toggleTheme } from '../themeToggle'; // Ensure correct path to themeToggle
 
 const Navbar = () => {
     return (
@@ -19,15 +20,11 @@ const Navbar = () => {
                             <Link className="nav-link text-dark" to="/privacy">Privacy</Link>
                         </li>
                     </ul>
-                    <button className="btn btn-light" id="theme-toggle" onClick={() => toggleTheme()}>Light Theme</button>
+                    <button className="btn btn-light" id="theme-toggle" onClick={toggleTheme}>Light Theme</button>
                 </div>
             </div>
         </nav>
     );
-};
-
-const toggleTheme = () => {
-    // Implement theme toggle logic
 };
 
 export default Navbar;
