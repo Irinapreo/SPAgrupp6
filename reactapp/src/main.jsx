@@ -1,14 +1,15 @@
-import React from 'react';// Keep this only once at the top
+import React from 'react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
+import App from './App';
 import './index.css';
-import ArticleList from './ArticleList';
+import ArticleList from './ArticleList'; // Ensure you have this component
+
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <App />
-    </StrictMode>,
+    </StrictMode>
 );
 
 
@@ -20,6 +21,5 @@ const Main = () => {
         </div>
     );
 };
-
 
 export default Main;
