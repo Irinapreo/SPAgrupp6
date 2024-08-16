@@ -1,5 +1,5 @@
-// src/components/Layout.jsx
 import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes for prop validation
 import Navbar from './Navbar';
 import './Layout.css'; // Import layout-specific styles
 
@@ -19,6 +19,11 @@ const Layout = ({ children }) => {
             </footer>
         </div>
     );
+};
+
+// Define propTypes for the component
+Layout.propTypes = {
+    children: PropTypes.node.isRequired, // Validate that children is passed and is of the correct type
 };
 
 export default Layout;

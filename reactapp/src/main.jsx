@@ -1,13 +1,17 @@
+// src/main.jsx
 import React from 'react';
-import ArticleList from './ArticleList'; // Ensure this path is correct
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import App from './App'; // Import your main App component
+import './index.css'; // Global styles
 
-const Main = () => {
-    return (
-        <div>
-            <h1>Welcome to the News App</h1>
-            <ArticleList /> {/* This component will fetch and display the articles */}
-        </div>
-    );
-};
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export default Main;
+root.render(
+    <Router>
+        <Routes>
+            <Route path="/" element={<App />} />
+            {/* Add additional routes here if needed */}
+        </Routes>
+    </Router>
+);

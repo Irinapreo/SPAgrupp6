@@ -1,21 +1,21 @@
-// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Layout from './components/Layout';
-import ArticleList from './components/ArticleList';
-import Privacy from './components/Privacy';
-import './App.css'; // Import global styles
+import Navbar from './components/Navbar'; // Ensure this path is correct
+import ArticleList from './ArticleList'; // Ensure this path is correct
+import Footer from './components/Footer'; // Importing the Footer component
 
 const App = () => {
     return (
-        <Router>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<ArticleList />} />
-                    <Route path="/privacy" element={<Privacy />} />
-                </Routes>
-            </Layout>
-        </Router>
+        <div>
+            <Navbar />
+            <main role="main" className="pb-3">
+                <div className="container">
+                    <div className="row article-container">
+                        <ArticleList /> {/* This component will fetch and display the articles */}
+                    </div>
+                </div>
+            </main>
+            <Footer /> {/* Adding the Footer component here */}
+        </div>
     );
 };
 

@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { toggleTheme } from '../themeToggle'; // Ensure correct path to themeToggle
+import { toggleTheme } from '../themeToggle'; // Ensure correct path
 
 const Navbar = () => {
     return (
