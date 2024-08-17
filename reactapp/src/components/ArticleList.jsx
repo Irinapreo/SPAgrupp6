@@ -9,11 +9,14 @@ const ArticleList = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await fetch('/api/articles?' + new URLSearchParams({
-                    searchString,
-                    topic,
-                    sortBy
-                }));
+                // Construct query parameters
+                const params = new URLSearchParams();
+                if (searchString) params.append('searchString', searchString);
+                if (topic) params.append('topic', topic);
+                if (sortBy) params.append('sortBy', sortBy);
+        
+                // Fetch articles from API
+                const response = await fetch(`http://localhost:3000/api/articles?${params.toString()}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
