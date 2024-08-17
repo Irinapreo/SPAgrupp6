@@ -9,9 +9,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <Router>
-        <Routes>
-            <Route path="/" element={<App />} />
-            {/* Add additional routes here if needed */}
-        </Routes>
+        <App />
     </Router>
 );

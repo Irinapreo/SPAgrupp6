@@ -1,4 +1,3 @@
-// src/components/ArticleList.jsx
 import React, { useState, useEffect } from 'react';
 
 const ArticleList = () => {
@@ -10,14 +9,16 @@ const ArticleList = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await axios.get('/api/articles', {
-                    params: {
-                        searchString,
-                        topic,
-                        sortBy
-                    }
-                });
-                setArticles(response.data);
+                const response = await fetch('/api/articles?' + new URLSearchParams({
+                    searchString,
+                    topic,
+                    sortBy
+                }));
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setArticles(data);
             } catch (error) {
                 console.error('Error fetching articles:', error);
             }
@@ -98,18 +99,22 @@ const ArticleList = () => {
             </div>
 
             <div className="row mt-4">
-                {articles.map((article, index) => (
-                    <div key={index} className="col-md-6 col-lg-4 mb-4">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">{article.title}</h5>
-                                <p className="card-text">{article.summary}</p>
-                                <a href={article.link} className="card-link" target="_blank" rel="noopener noreferrer">Read More</a>
-                                <p className="card-text"><small className="text-muted">{new Date(article.published).toLocaleDateString()}</small></p>
+                {articles.length > 0 ? (
+                    articles.map((article, index) => (
+                        <div key={index} className="col-md-6 col-lg-4 mb-4">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">{article.title}</h5>
+                                    <p className="card-text">{article.summary}</p>
+                                    <a href={article.link} className="card-link" target="_blank" rel="noopener noreferrer">Read More</a>
+                                    <p className="card-text"><small className="text-muted">{new Date(article.published).toLocaleDateString()}</small></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                ) : (
+                    <p>No articles found.</p>
+                )}
             </div>
         </div>
     );

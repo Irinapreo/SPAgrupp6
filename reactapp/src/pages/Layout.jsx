@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for prop validation
 import Navbar from '../components/Navbar';
-import './Layout.css'; // Import layout-specific styles
+import Footer from '../components/Footer';
+import '../assets/Layout.css'; // Import layout-specific styles
 
 const Layout = ({ children }) => {
     return (
@@ -12,11 +13,7 @@ const Layout = ({ children }) => {
                     {children}
                 </div>
             </main>
-            <footer className="border-top footer text-muted">
-                <div className="footer-container">
-                    &copy; 2024 - JensensWebApp - <a href="/privacy">Privacy</a>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };

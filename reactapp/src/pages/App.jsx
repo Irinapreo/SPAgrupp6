@@ -1,23 +1,19 @@
+// src/pages/App.jsx
 import React from 'react';
-import Navbar from '../components/Navbar'; // Ensure this path is correct
-import ArticleList from '../components/ArticleList'; // Ensure this path is correct
-import Footer from '../components/Footer'; // Importing the Footer component
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout';
+import Home from './Home';  // Import your home page component
+import Privacy from '../components/Privacy';  // Import the Privacy component
 
 const App = () => {
     return (
-        <div>
-            <Navbar />
-            <main role="main" className="pb-3">
-                <div className="container">
-                    <div className="row article-container">
-                        <ArticleList />
-                    </div>
-                </div>
-            </main>
-            <Footer /> 
-        </div>
+        <Layout>
+            <Routes>
+                <Route path="/" element={<Home />} />  {/* Default home page */}
+                <Route path="/privacy" element={<Privacy />} />  {/* Privacy page */}
+            </Routes>
+        </Layout>
     );
 };
 
 export default App;
-console.log("App component rendered");
