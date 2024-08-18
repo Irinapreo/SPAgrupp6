@@ -239,20 +239,26 @@ footer a {
 #theme-toggle {
   display: inline-block;
   padding: 0.375rem 0.75rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border: 1.5px solid #66FCF1;
+  border-radius: 1.2rem;
   cursor: pointer;
   margin: 5px;
   z-index: 1000;
-  background-color: #1F2833; 
-  color: #ffffff; 
+  background-color:  #1f2833 !important; 
+  color: #E4EDFC !important; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+#theme-toggle:hover {
+  background-color: #E4EDFC!important;
+  color: #120A15!important;
+  border-color: #1F2833;
+  transform: scale(1.05); 
+}
 
 .light-theme #theme-toggle {
-  background-color: #E4EDFC;
-  color: #120A15;
+  background-color: #120A15;
+  color: #E4EDFC;
 }
 
 .btn-primary {
@@ -327,6 +333,20 @@ body.light-theme {
     body.light-theme .nav-link:hover {
       color: #1861ac !important;
     }
+
+    body.light-theme #theme-toggle {
+      background-color: #E4EDFC!important; /* Dark background for light theme */
+      color: #120A15!important; /* Light text color for light theme */
+      border-color: #1861ac; /* Dark border for light theme */
+    }
+    
+    /* Hover effect in light theme */
+    body.light-theme #theme-toggle:hover {
+      background-color: #120A15!important; /* Light background for hover */
+      color: #E4EDFC!important; /* Dark text color for hover */
+      border-color: #1861ac;
+    }  
+    
 
   body.light-theme h1 {
     color: #3ff30b;
