@@ -55,9 +55,7 @@ const ArticleList = () => {
     };
 
     return (
-        <div className="container">
-            <h1>Articles</h1>
-
+        <div className="container" >
             <form onSubmit={handleSearch} className="search-form">
                 <div className="input-group">
                     <input

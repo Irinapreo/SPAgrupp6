@@ -10,6 +10,8 @@ const Layout = ({ children }) => {
             <Navbar />
             <main role="main" className="pb-3">
                 <div className="container">
+                    <h1>Articles</h1>
+
                     {children}
                 </div>
             </main>
