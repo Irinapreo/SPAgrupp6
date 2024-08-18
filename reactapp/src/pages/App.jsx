@@ -1,5 +1,4 @@
 // src/pages/App.jsx
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 import Home from './Home';  // Import your home page component
