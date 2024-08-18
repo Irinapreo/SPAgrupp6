@@ -76,8 +76,7 @@ const ArticleList = () => {
                         <button
                             key={key}
                             className="btn btn-primary"
-                            onClick={() => handleTopicChange(key)}
-                        >
+                            onClick={() => handleTopicChange(key)}>
                             {value}
                         </button>
                     ))}
@@ -88,19 +87,17 @@ const ArticleList = () => {
                 <div className="col-md-12">
                     <button
                         className="btn btn-primary"
-                        onClick={() => handleSortChange('newest')}
-                    >
+                        onClick={() => handleSortChange('newest')}>
                         Nyast till Äldst
                     </button>
                     <button
                         className="btn btn-primary"
-                        onClick={() => handleSortChange('oldest')}
-                    >
+                        onClick={() => handleSortChange('oldest')}>
                         Äldst till Nyast
                     </button>
                 </div>
             </div>
-
+{/*  */}
             <div className="row mt-4">
                 {articles.length > 0 ? (
                     articles.map((article, index) => (

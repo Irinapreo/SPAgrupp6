@@ -20,10 +20,11 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-position: center top; 
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
+
 
 .navbar-custom {
   background-color: #1F2833 !important;
