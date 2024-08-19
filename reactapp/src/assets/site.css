@@ -51,61 +51,18 @@ body {
   margin: 0;
 }
 
-.navbar-custom {
-  background-color: rgba(31, 40, 51, 1) ;
-}
-
-
-.navbar {
-    height: 60px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-} 
 
 .border-bottom {
   border-bottom: 2px solid #66FCF1 !important;
 }
 
-.navbar-brand {
-  font-family: 'DM Serif Text', serif;
-  font-size: 280%;
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.navbar-collapse {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 1px;
-  margin-top: 15px;
-  z-index: 999;
-}
-
-.navbar-light .navbar-brand {
-  color: #45A29E;
-}
-
-  .navbar-light .navbar-brand:hover {
-    color: #45A29E !important;
-    text-shadow: 0 0 15px #fff;
-  }
-
-  
-
 body:not(.light-theme) .nav-link {
   font-size: 18px; 
 }
-  body:not(.light-theme) .nav-link:hover {
-    color: #0d6efd !important;
-  }
+
+body:not(.light-theme) .nav-link:hover {
+  color: #0d6efd !important;
+}
 
 
 .text-dark {
@@ -163,9 +120,9 @@ footer a {
   text-decoration: none;
 }
 
-  footer a:hover {
-    text-decoration: underline;
-  }
+footer a:hover {
+  text-decoration: underline;
+}
 
 
 .text-muted {
@@ -205,10 +162,10 @@ footer a {
   margin-top: 3%;
 }
 
-  .card-title:hover {
-    transform: scale(1.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.card-title:hover {
+  transform: scale(1.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
 .card-text {
   color: white;
@@ -225,9 +182,9 @@ footer a {
   text-decoration: none;
 }
 
-  .card-link:hover {
-    text-decoration: underline;
-  }
+.card-link:hover {
+  text-decoration: underline;
+}
 
 .btn.btn-primary {
   color: #ffffff;
@@ -237,25 +194,27 @@ footer a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 2px;
 }
-  .btn.btn-primary:hover {
-    transform: scale(1.05);
-  }
 
-  .btn.btn-secondary {
-    color: #ffffff;
-    background-color: #1F2833;
-    border-color: #66FCF1;
-    border-radius: 100px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 2px;
-  }
-  .btn.btn.btn-secondary:hover {
-    transform: scale(1.05);
-  }
+.btn.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn.btn-secondary {
+  color: #ffffff;
+  background-color: #1F2833;
+  border-color: #66FCF1;
+  border-radius: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 2px;
+}
+.btn.btn.btn-secondary:hover {
+  transform: scale(1.05);
+}
   
 
 .col-md-12 {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .input-group {
@@ -271,10 +230,10 @@ footer a {
   border-radius: 1.2rem;
   cursor: pointer;
   margin-top: 30px;
-  margin-right: -300px;
+  margin-left: auto;
   white-space: nowrap;
-  background-color:  #1f2833 !important; 
-  color: #E4EDFC !important; 
+  background-color: #1f2833 !important;
+  color: #E4EDFC !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -302,11 +261,11 @@ footer a {
   border-color: #66FCF1;
 }
 
-  .btn-outline-primary:hover {
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-color: #66FCF1;
-  }
+.btn-outline-primary:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: #66FCF1;
+}
 
 .form-control {
   color: #ffffff;
@@ -353,134 +312,111 @@ body.light-theme {
   background-color: #E4EDFC;
 }
 
-  body.light-theme .navbar {
-    background-color: rgba(228, 237, 252, 1)!important;
-  }
+body.light-theme #theme-toggle {
+  background-color: #E4EDFC!important; /* Dark background for light theme */
+  color: #120A15!important; /* Light text color for light theme */
+  border-color: #1861ac; /* Dark border for light theme */
+}
 
-  body.light-theme .navbar-brand,
-  body.light-theme .text-dark {
-    color: #754585 !important;
-  }
+/* Hover effect in light theme */
+body.light-theme #theme-toggle:hover {
+  background-color: #120A15!important; /* Light background for hover */
+  color: #E4EDFC!important; /* Dark text color for hover */
+  border-color: #1861ac;
+}  
 
-    body.light-theme .navbar-brand:hover {
-      color: #754585 !important;
-      text-shadow: 0 0 30px #754585;
-    }
 
-  body.light-theme .nav-link {
-    font-size: 18px;
-    color: #754585 !important;
-  }
+body.light-theme h1 {
+color: #06d311;
+}
 
-    body.light-theme .nav-link:hover {
-      color: #1861ac !important;
-    }
+body.light-theme header {
+background-color: #E4EDFC;
+}
 
-    body.light-theme #theme-toggle {
-      background-color: #E4EDFC!important; /* Dark background for light theme */
-      color: #120A15!important; /* Light text color for light theme */
-      border-color: #1861ac; /* Dark border for light theme */
-    }
-    
-    /* Hover effect in light theme */
-    body.light-theme #theme-toggle:hover {
-      background-color: #120A15!important; /* Light background for hover */
-      color: #E4EDFC!important; /* Dark text color for hover */
-      border-color: #1861ac;
-    }  
-    
+body.light-theme .btn.btn-outline-primary {
+color: #120A15;
+background-color: #E4EDFC;
+border-color: #1861ac;
+border-radius: 5px;
+}
 
-  body.light-theme h1 {
-    color: #06d311;
-  }
+body.light-theme .btn.btn-outline-primary:hover {
+  opacity: 0.8;
+  transform: none;
+}
 
-  body.light-theme header {
-    background-color: #E4EDFC;
-  }
+body.light-theme .btn-primary,
+body.light-theme .btn-outline-primary {
+color: #120A15 !important;
+background-color: #E4EDFC !important;
+border-color: #1861ac !important;
+border-radius: 100px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  body.light-theme .btn.btn-outline-primary {
-    color: #120A15;
-    background-color: #E4EDFC;
-    border-color: #1861ac;
-    border-radius: 5px;
-  }
+body.light-theme .btn-primary:hover,
+body.light-theme .btn-outline-primary:hover {
+  transform: scale(1.15);
+}
 
-    body.light-theme .btn.btn-outline-primary:hover {
-      opacity: 0.8;
-      transform: none;
-    }
+body.light-theme .btn-primary {
+color: #120A15;
+background-color: #E4EDFC;
+border-color: #1861ac;
+border-radius: 100px;
+}
 
-  body.light-theme .btn-primary,
-  body.light-theme .btn-outline-primary {
-    color: #120A15 !important;
-    background-color: #E4EDFC !important;
-    border-color: #1861ac !important;
-    border-radius: 100px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+body.light-theme .card {
+color: #120A15;
+background-color: #E4EDFC;
+border-color: #1861ac;
+}
 
-    body.light-theme .btn-primary:hover,
-    body.light-theme .btn-outline-primary:hover {
-      transform: scale(1.15);
-    }
+body.light-theme .border-bottom {
+border-bottom-color: #1861ac !important;
+}
 
-  body.light-theme .btn-primary {
-    color: #120A15;
-    background-color: #E4EDFC;
-    border-color: #1861ac;
-    border-radius: 100px;
-  }
+body.light-theme .card-title {
+color: #120A15;
+}
 
-  body.light-theme .card {
-    color: #120A15;
-    background-color: #E4EDFC;
-    border-color: #1861ac;
-  }
+body.light-theme .card-text {
+color: #120A15;
+}
 
-  body.light-theme .border-bottom {
-    border-bottom-color: #1861ac !important;
-  }
+body.light-theme .card-link {
+color: #7D91E1;
+}
 
-  body.light-theme .card-title {
-    color: #120A15;
-  }
+body.light-theme .form-control {
+color: #120A15;
+background-color: #E4EDFC;
+border-color: #1861ac;
+}
 
-  body.light-theme .card-text {
-    color: #120A15;
-  }
+body.light-theme .footer-container,
+body.light-theme .text-muted {
+color: #120A15 !important;
+}
 
-  body.light-theme .card-link {
-    color: #7D91E1;
-  }
+body.light-theme footer {
+color: #120A15;
+background-color: #E4EDFC;
+border-top: 2px solid #1861ac !important;
+}
 
-  body.light-theme .form-control {
-    color: #120A15;
-    background-color: #E4EDFC;
-    border-color: #1861ac;
-  }
+body.light-theme .footer[b-he1jpyb09p] {
+border-top-color: #1861ac !important; 
+}
 
-  body.light-theme .footer-container,
-  body.light-theme .text-muted {
-    color: #120A15 !important;
-  }
+body.light-theme .footer a {
+color: #7D91E1;
+text-decoration: none;
+}
 
-  body.light-theme footer {
-    color: #120A15;
-    background-color: #E4EDFC;
-    border-top: 2px solid #1861ac !important;
-  }
-
-  body.light-theme .footer[b-he1jpyb09p] {
-    border-top-color: #1861ac !important; 
-  }
-
-  body.light-theme .footer a {
-    color: #7D91E1;
-    text-decoration: none;
-  }
-
-    body.light-theme .footer a:hover {
-      text-decoration: underline;
-    }
+body.light-theme .footer a:hover {
+  text-decoration: underline;
+}
 
 
