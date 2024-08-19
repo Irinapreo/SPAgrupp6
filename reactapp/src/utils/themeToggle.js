@@ -21,8 +21,8 @@ window.onload = function () {
     const toggleButton = document.getElementById('theme-toggle');
     if (theme === 'light') {
         document.body.classList.add('light-theme');
-        toggleButton.textContent = 'Dark Theme';
+        toggleButton.textContent = 'Mörkt läge';
     } else {
-        toggleButton.textContent = 'Light Theme';
+        toggleButton.textContent = 'Ljust läge';
     }
 };
