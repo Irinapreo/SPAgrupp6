@@ -57,17 +57,17 @@ const ArticleList = () => {
     return (
 
         <div className="container" >
-            <h1>Articles</h1>
+            <h1>Artiklar</h1>
 
             <form onSubmit={handleSearch} className="search-form">
                 <div className="input-group">
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Search articles..."
+                        placeholder="Sök artiklar..."
                         name="searchString"
                     />
-                    <button type="submit" className="btn btn-outline-primary">Search</button>
+                    <button type="submit" className="btn btn-outline-primary">Sök</button>
                 </div>
             </form>
 
@@ -107,14 +107,14 @@ const ArticleList = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">{article.title}</h5>
                                     <p className="card-text">{article.summary}</p>
-                                    <a href={article.link} className="card-link" target="_blank" rel="noopener noreferrer">Read More</a>
+                                    <a href={article.link} className="card-link" target="_blank" rel="noopener noreferrer">Läs mer</a>
                                     <p className="card-text"><small className="text-muted">{new Date(article.published).toLocaleDateString()}</small></p>
                                 </div>
                             </div>
                         </div>
                     ))
                 ) : (
-                    <p>No articles found.</p>
+                    <p>Inga artiklar hittades.</p>
                 )}
             </div>
         </div>
