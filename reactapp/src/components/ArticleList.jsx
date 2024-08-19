@@ -40,18 +40,18 @@ const ArticleList = () => {
   setSearchString(searchQuery);
 };
 
-    const handleTopicChange = (newTopic) => {
-        setTopic(newTopic);
-    };
-
-    const handleSortChange = (sortOrder) => {
-        setSortBy(sortOrder);
-    };
-
-    const handleResetTopic = () => {
-  setTopic('');
+const handleTopicChange = (newTopic) => {
+    setTopic(newTopic);
 };
 
+const handleSortChange = (sortOrder) => {
+    setSortBy(sortOrder);
+};
+
+const handleResetTopic = () => {
+    setTopic('');
+    
+};
     const topicDisplayNames = {
         "Halsa": "Hälsa",
         "SamhalleKonflikter": "Samhälle och Konflikter",
@@ -64,10 +64,8 @@ const ArticleList = () => {
     };
 
     return (
-
         <div className="container" >
             <h1>Artiklar</h1>
-
             <form onSubmit={handleSearch} className="search-form">
                 <div className="input-group">
                     <input
@@ -77,7 +75,7 @@ const ArticleList = () => {
                         name="searchString"
                         onChange={(e) => setSearchString(e.target.value)}
                     />
-                    <button type="submit" className="btn btn-outline-primary">Sök</button>
+                    {/* <button type="submit" className="btn btn-outline-primary">Sök</button> */}
                 </div>
             </form>
 
@@ -115,9 +113,9 @@ const ArticleList = () => {
             </div>
 
            <div className="row mt-4">
-  {filteredArticles.length > 0 ? (
-    filteredArticles.map((article, index) => (
-                <div key={index} className="col-md-6 col-lg-4 mb-4">
+                    {filteredArticles.length > 0 ? (
+                        filteredArticles.map((article, index) => (
+                        <div key={index} className="col-md-6 col-lg-4 mb-4">
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">{article.title}</h5>
