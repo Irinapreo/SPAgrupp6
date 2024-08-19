@@ -6,9 +6,9 @@ export function toggleTheme() {
 
     // Update button text based on theme
     if (isLightTheme) {
-        toggleButton.textContent = 'Dark Theme';
+        toggleButton.textContent = 'Mörkt läge';
     } else {
-        toggleButton.textContent = 'Light Theme';
+        toggleButton.textContent = 'Ljust läge';
     }
 
     // Store the user's preference in localStorage

@@ -9,6 +9,20 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
   }
+
+  .navbar-nav {
+    list-style-type: none;
+    justify-content: center;
+    align-items: center; 
+    margin-left: -30px; 
+    margin-top: -28px;
+}
+
+.navbar-custom .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
   
   a {
     color: #0077cc;
