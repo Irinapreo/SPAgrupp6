@@ -187,6 +187,7 @@ footer a {
   padding: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  margin: 20px;
 }
 
 .col-md-6 {
@@ -231,9 +232,10 @@ footer a {
   border-color: #66FCF1;
   border-radius: 100px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 2px;
 }
   .btn.btn-primary:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
   }
 
 .col-md-12 {
