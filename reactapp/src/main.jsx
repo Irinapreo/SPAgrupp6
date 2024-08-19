@@ -1,25 +1,13 @@
-import React from 'react';// Keep this only once at the top
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
-import ArticleList from './ArticleList';
+// src/main.jsx
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router} from 'react-router-dom';
+import App from './pages/App'; // Import your main App component
+import './assets/index.css'; // Import your global styles
 
-createRoot(document.getElementById('root')).render(
-    <StrictMode>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+    <Router>
         <App />
-    </StrictMode>,
+    </Router>
 );
-
-
-const Main = () => {
-    return (
-        <div>
-            <h1>Welcome to the News App</h1>
-            <ArticleList /> {/* This should render the articles */}
-        </div>
-    );
-};
-
-
-export default Main;
