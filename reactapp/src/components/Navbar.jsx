@@ -15,13 +15,13 @@ const Navbar = () => {
                 <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul className="navbar-nav flex-grow-1">
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/">Hem</Link>
+                            <Link className="nav-link text-dark" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/privacy">Kontakt</Link>
+                            <Link className="nav-link text-dark" to="/privacy">Privacy</Link>
                         </li>
                     </ul>
-                    <button className="btn btn-light" id="theme-toggle" onClick={toggleTheme}>Ljust tema</button>
+                    <button className="btn btn-light" id="theme-toggle" onClick={toggleTheme}>Light Theme</button>
                 </div>
             </div>
         </nav>

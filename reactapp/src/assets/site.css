@@ -238,6 +238,19 @@ footer a {
     transform: scale(1.05);
   }
 
+  .btn.btn-secondary {
+    color: #ffffff;
+    background-color: #1F2833;
+    border-color: #66FCF1;
+    border-radius: 100px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 2px;
+  }
+  .btn.btn.btn-secondary:hover {
+    transform: scale(1.05);
+  }
+  
+
 .col-md-12 {
   text-align: center;
 }
