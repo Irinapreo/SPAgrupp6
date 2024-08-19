@@ -9,9 +9,9 @@ const Navbar = () => {
         <nav className="navbar-new-style navbar-expand-sm navbar-light navbar-custom border-bottom box-shadow mb-3">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Grupp VI</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                     <span className="navbar-toggler-icon"></span>
-                </button>
+                </button> */}
                 <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul className="navbar-nav flex-grow-1">
                         <li className="nav-item">
