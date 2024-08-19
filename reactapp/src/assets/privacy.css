@@ -1,14 +1,9 @@
-﻿body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #E4EDFC;
-  background-color: #1F2833;
-}
-
+﻿
 h2 {
     font-size: 1.8em;
     color: #66FCF1;
     text-align: center;
+    font-size: 2em;
 }
 
 p {
@@ -39,7 +34,7 @@ p {
   }
 
   h2 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 }
 

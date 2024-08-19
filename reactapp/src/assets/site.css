@@ -3,10 +3,9 @@
 html {
 
   font-size: 14px;
-  position: relative;
+ /* position: relative; */
   min-height: 100%;
   font-size: 14px;
-  position: relative;
   min-height: 100%;
 
 }
@@ -15,29 +14,32 @@ html {
   html {
     font-size: 16px;
   }
+  
 }
 
 body {
   min-height: 100vh; 
-  overflow-x: hidden;
   background-image: url('../images/Space.png'); 
-  background-size: cover;
+  background-size:auto;
   background-attachment: fixed;
   background-position: center top; 
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #E4EDFC;
+  background-color: #1F2833;
 }
 
 
 .navbar-custom {
-  background-color: rgba(31, 40, 51, 0.9) ;
+  background-color: rgba(31, 40, 51, 1) ;
 }
 
 
 .navbar {
-    height: 50px;
+    height: 70px;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
 } 
 
 .border-bottom {
@@ -72,19 +74,6 @@ body {
   .navbar-light .navbar-brand:hover {
     color: #45A29E !important;
     text-shadow: 0 0 15px #fff;
-  }
-
-  .navbar-new-style {
-    z-index: 99;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-top: 1.5rem;
-    padding: 1.5rem 2%;
-    display: flex;
-    position: sticky;
-    top: 1rem;
-    overflow: visible;
   }
 
 
@@ -127,20 +116,21 @@ h1 {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
   background-color: #1f2833;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 50px; 
+  height: 40px; 
   border-top: 2px solid #66FCF1 !important;
-  
 }
+
 
 .footer-container {
   color: #45A29E;
-  
 }
 
 footer a {
@@ -258,15 +248,13 @@ footer a {
 }
 
 #theme-toggle {
-  display: inline-block;
-  padding: 0.375rem 0.75rem;
+  display: flex;
   border: 1.5px solid #66FCF1;
   border-radius: 1.2rem;
   cursor: pointer;
-  margin-left: auto;
-  margin-right: 15px;
+  margin-top: 40px;
+  margin-right: -300px;
   white-space: nowrap;
-  z-index: 1000;
   background-color:  #1f2833 !important; 
   color: #E4EDFC !important; 
   transition: background-color 0.3s ease, color 0.3s ease;

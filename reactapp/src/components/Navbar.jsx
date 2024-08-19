@@ -6,7 +6,7 @@ import { toggleTheme } from '../utils/themeToggle'; // Ensure correct path
 
 const Navbar = () => {
     return (
-        <nav className="navbar-new-style navbar-expand-sm navbar-light navbar-custom border-bottom box-shadow mb-3">
+        <nav className="navbar navbar-expand-sm navbar-light navbar-custom border-bottom box-shadow mb-3">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Grupp VI</Link>
                 {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">

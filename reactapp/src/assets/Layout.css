@@ -13,13 +13,13 @@ a.navbar-brand {
   .navbar-nav {
     display: flex;
     list-style-type: none;
-    justify-content: center;
-    align-items: center; 
+    margin-top: 55px;
+    margin-left: -310px;
     padding-left: 0;
-
 }
 
 .navbar-nav .nav-item+.nav-item {
+  justify-content: center;
   margin-left: 15px;
   /* Lägg till mellanrum mellan länkar */
 
