@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toggleTheme } from '../utils/themeToggle'; // Ensure correct path
@@ -31,14 +30,14 @@ const Navbar = () => {
     }, []);
   
     return (
-        <nav className="navbar navbar-expand-sm navbar-light navbar-custom border-bottom box-shadow mb-3">
+        <nav className="navbar navbar-light navbar-custom border-bottom box-shadow">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Grupp VI</Link>
-                {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                {/* {<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
                     <span className="navbar-toggler-icon"></span>
-                </button> */}
-                <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul className="navbar-nav flex-grow-1">
+                </button>} */}
+                <div className="navbar-collapse">
+                    <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link className="nav-link text-dark" to="/">Home</Link>
                         </li>

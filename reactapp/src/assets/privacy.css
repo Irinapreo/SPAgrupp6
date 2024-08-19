@@ -45,7 +45,7 @@ p {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 150px;
+  margin-bottom: 100px;
   margin-top: 75px;
 }
 
@@ -77,17 +77,17 @@ input, textarea {
   background-color: #66FCF1;
   color: #1F2833;
   padding: 10px 20px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
   align-self: flex-start;
+  border-radius: 8px;
+
 }
 
   .submit-btn:hover {
     background-color: #45A29E;
   }
-
 
 
 /* Light Theme Styles */
