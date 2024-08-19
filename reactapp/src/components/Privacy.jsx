@@ -4,7 +4,7 @@ import '../assets/privacy.css'; // Import privacy-specific styles
 const Privacy = () => {
     return (
         <div className="privacy-container">
-            <h1>Privacy</h1>
+            <h1>Kontakt</h1>
             <div className="privacy-content">
                 <p><strong>Din integritet är viktig för oss.</strong></p>
                 <p>Vi värnar om din trygghet och lovar att inte lämna ut dina personuppgifter till någon utomstående part. Dina uppgifter används endast för att förbättra din användarupplevelse och för att kunna kontakta dig vid behov.</p>
