@@ -73,12 +73,17 @@ const ArticleList = () => {
 
             <div className="row">
                 <div className="col-md-12">
+                    <button
+                        className="btn btn-secondary"
+                        onClick={() => handleTopicChange('')}>
+                        Visa Alla
+                    </button>
                     {Object.entries(topicDisplayNames).map(([key, value]) => (
                         <button
-                            key={key}
-                            className="btn btn-primary"
-                            onClick={() => handleTopicChange(key)}>
-                            {value}
+                        key={key}
+                        className="btn btn-primary"
+                        onClick={() => handleTopicChange(key)}>
+                        {value}
                         </button>
                     ))}
                 </div>
