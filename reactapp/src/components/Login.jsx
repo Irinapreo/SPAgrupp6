@@ -22,9 +22,12 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleLogin}>Login</button>
+      <div className='container center'>
+      <input className="custom-input" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+      <input className="custom-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button className="custom-input" onClick={handleLogin}>Login</button>
+      </div>
+      
     </div>
   );
 };
