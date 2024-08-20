@@ -9,7 +9,7 @@ const App = () => {
         <Layout>
             <Routes>
                 <Route path="/" element={<Home />} />  {/* Default home page */}
-                <Route path="/privacy" element={<Privacy />} />  {/* Privacy page */}
+                <Route path="/kontakt" element={<Privacy />} />  {/* Privacy page */}
             </Routes>
         </Layout>
     );

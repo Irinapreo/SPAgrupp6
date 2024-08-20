@@ -10,7 +10,7 @@ const Privacy = () => {
                 <p>Vi värnar om din trygghet och lovar att inte lämna ut dina personuppgifter till någon utomstående part. Dina uppgifter används endast för att förbättra din användarupplevelse och för att kunna kontakta dig vid behov.</p>
                 <div className="title-container">
                     <h2>Kontaktformulär</h2>
-                    <form method="post" action="/privacy/contact" className="privacy-form">
+                    <form method="post" action="/kontakt/borat" className="privacy-form">
                         <div className="form-group">
                             <label htmlFor="name">Namn:</label>
                             <input type="text" id="name" name="name" required />

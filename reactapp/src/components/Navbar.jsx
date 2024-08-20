@@ -44,7 +44,7 @@ const Navbar = () => {
                             <Link className="nav-link text-dark" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/privacy">Privacy</Link>
+                            <Link className="nav-link text-dark" to="/kontakt">Kontakt</Link>
                         </li>
                     </ul>
                     <button className="btn btn-light" id="theme-toggle" onClick={toggleTheme}>Light Theme</button>
