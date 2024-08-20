@@ -30,10 +30,15 @@ const ArticleList = () => {
         fetchArticles();
     }, [searchString, topic, sortBy]);
 
+    const filteredArticles = articles.filter(
+  (article) => article.title.toLowerCase().includes(searchString.toLowerCase())
+);
+
     const handleSearch = (e) => {
-        e.preventDefault();
-        setSearchString(e.target.searchString.value);
-    };
+  e.preventDefault();
+  const searchQuery = e.target.searchString.value.toLowerCase();
+  setSearchString(searchQuery);
+};
 
     const handleTopicChange = (newTopic) => {
         setTopic(newTopic);
@@ -42,6 +47,10 @@ const ArticleList = () => {
     const handleSortChange = (sortOrder) => {
         setSortBy(sortOrder);
     };
+
+    const handleResetTopic = () => {
+  setTopic('');
+};
 
     const topicDisplayNames = {
         "Halsa": "Hälsa",
@@ -66,6 +75,7 @@ const ArticleList = () => {
                         className="form-control"
                         placeholder="Sök artiklar..."
                         name="searchString"
+                        onChange={(e) => setSearchString(e.target.value)}
                     />
                     <button type="submit" className="btn btn-outline-primary">Sök</button>
                 </div>
@@ -75,7 +85,7 @@ const ArticleList = () => {
                 <div className="col-md-12">
                     <button
                         className="btn btn-secondary"
-                        onClick={() => handleTopicChange('')}>
+                        onClick={() => handleResetTopic()}>
                         Visa Alla
                     </button>
                     {Object.entries(topicDisplayNames).map(([key, value]) => (
@@ -103,11 +113,11 @@ const ArticleList = () => {
                     </button>
                 </div>
             </div>
-{/*  */}
-            <div className="row mt-4">
-                {articles.length > 0 ? (
-                    articles.map((article, index) => (
-                        <div key={index} className="col-md-6 col-lg-4 mb-4">
+
+           <div className="row mt-4">
+  {filteredArticles.length > 0 ? (
+    filteredArticles.map((article, index) => (
+                <div key={index} className="col-md-6 col-lg-4 mb-4">
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">{article.title}</h5>
