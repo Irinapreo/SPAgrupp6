@@ -74,7 +74,7 @@ const ArticleList = () => {
             <div className="row">
                 <div className="col-md-12">
                     <button
-                        className="btn btn-secondary"
+                        className="btn btn-primary"
                         onClick={() => handleTopicChange('')}>
                         Visa Alla
                     </button>
