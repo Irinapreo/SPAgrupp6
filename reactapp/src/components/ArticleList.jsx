@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import debounce from 'lodash.debounce';
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const [searchString, setSearchString] = useState('');
     const [topic, setTopic] = useState('');
     const [sortBy, setSortBy] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchArticles = async () => {
+            setIsLoading(true);
             try {
-                // Construct query parameters
                 const params = new URLSearchParams();
                 if (searchString) params.append('searchString', searchString);
                 if (topic) params.append('topic', topic);
                 if (sortBy) params.append('sortBy', sortBy);
         
-                // Fetch articles from API
                 const response = await fetch(`http://localhost:3000/api/articles?${params.toString()}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -24,6 +25,9 @@ const ArticleList = () => {
                 setArticles(data);
             } catch (error) {
                 console.error('Error fetching articles:', error);
+            }
+            finally {
+                setIsLoading(false); // Set loading state to false after fetch completes
             }
         };
 
@@ -35,10 +39,14 @@ const ArticleList = () => {
 );
 
     const handleSearch = (e) => {
-  e.preventDefault();
-  const searchQuery = e.target.searchString.value.toLowerCase();
-  setSearchString(searchQuery);
-};
+  const searchQuery = e.target.value;
+  debouncedSearch(searchQuery);
+    };
+    
+    const debouncedSearch = debounce((query) => {
+  setSearchString(query);
+    }, 300);
+    
 
     const handleTopicChange = (newTopic) => {
         setTopic(newTopic);
@@ -77,7 +85,7 @@ const ArticleList = () => {
                         name="searchString"
                         onChange={(e) => setSearchString(e.target.value)}
                     />
-                    <button type="submit" className="btn btn-outline-primary">Sök</button>
+                    {/* <button type="submit" className="btn btn-outline-primary">Sök</button> */}
                 </div>
             </form>
 

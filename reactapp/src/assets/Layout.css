@@ -17,15 +17,14 @@
 }
 
 @media (max-width: 768px) {
-  .navbar-brand {
-    /* Adjust width or positioning for smaller screens */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .navbar-nav {
-    margin-left: 0;
-    /* Remove negative margin on mobile */
     flex-direction: column;
-    /* Stack links vertically */
+    margin-top: 20px;
   }
 }
 
