@@ -1,29 +1,31 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { toggleTheme } from '../utils/themeToggle'; // Ensure correct path
-/* import '/../node_modules/bootstrap/dist/css/bootstrap.min.css'; */
-
-
-
+import { toggleTheme } from '../utils/themeToggle';
 
 const Navbar = () => {
-    // Function to play sound
     const playSound = () => {
-      const audio = new Audio('/assets/audio/homePlease.mp3'); // Correct path relative to public directory
-      audio.preload = 'auto';
-      audio.play().catch(error => {
-        console.error('Error playing sound:', error); // Log any errors
-      });
+        const audioFiles = [
+            '/assets/audio/homePlease.mp3',
+            '/assets/audio/greatsuccess.mp3',
+            '/assets/audio/highfive.mp3'
+        ];
+        
+        const randomIndex = Math.floor(Math.random() * audioFiles.length);
+        const selectedAudio = new Audio(audioFiles[randomIndex]);
+        
+        selectedAudio.preload = 'auto';
+        selectedAudio.play().catch(error => {
+            console.error('Error playing sound:', error); 
+        });
     };
   
-    // Setup event listener on component mount and cleanup on unmount
+
     useEffect(() => {
       const navbarBrand = document.querySelector('.navbar-brand');
       if (navbarBrand) {
         navbarBrand.addEventListener('click', playSound);
       }
   
-      // Cleanup function
       return () => {
         if (navbarBrand) {
           navbarBrand.removeEventListener('click', playSound);
@@ -54,6 +56,6 @@ const Navbar = () => {
     );
   };
   
-  export default Navbar;
-  
+export default Navbar;
+
 console.log("Navbar component rendered");
