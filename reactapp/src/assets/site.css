@@ -146,7 +146,8 @@ footer a:hover {
   padding:5px 35px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
-  margin: 20px;
+  margin: 60px;
+  margin-top: -25px;
 }
 
 .col-md-6 {
@@ -408,15 +409,23 @@ body.light-theme .footer a:hover {
 }
 
 .article-count {
-  color: #ffffff; /* White text color */
-  background-color: #1F2833; /* Dark background color */
-  border: 2px solid #66FCF1; /* Cyan border color */
-  border-radius: 100px; /* Rounded corners */
-  padding: 10px 20px; /* Padding similar to button */
-  display: inline-block; /* Ensure the text is in a box */
-  text-align: center; /* Center the text */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-  margin: 2px; /* Same margin as the button */
-  font-family: inherit; /* Use the same font as the button */
-  font-size: inherit; /* Match the button’s font size */
+  color: #ffffff; 
+  background-color: #1F2833; 
+  border: 2px solid #66FCF1;
+  border-radius: 100px; 
+  padding: 10px 20px; 
+  margin: 2px;
+  font-weight: inherit;
 }
+
+
+body.light-theme .article-count {
+  color: #120A15; 
+  background-color: #E4EDFC;
+  border-color: #1861ac; 
+}
+
+
+
+
+
