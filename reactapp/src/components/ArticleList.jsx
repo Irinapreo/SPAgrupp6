@@ -92,13 +92,8 @@ const ArticleList = () => {
             <div className="row">
                 <div className="col-md-12">
                     <button
-
                         className="btn btn-primary"
                         onClick={() => handleTopicChange('')}>
-
-                        className="btn btn-primary"
-                        onClick={() => handleResetTopic()}>
-
                         Visa Alla
                     </button>
                     {Object.entries(topicDisplayNames).map(([key, value]) => (
@@ -111,7 +106,6 @@ const ArticleList = () => {
                     ))}
                 </div>
             </div>
-
             <div className="row mt-2">
                 <div className="col-md-12">
                     <button
