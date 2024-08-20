@@ -1,5 +1,3 @@
-// src/components/Footer.jsx
-
 const Footer = () => {
     return (
         <footer className="border-top footer text-muted">
