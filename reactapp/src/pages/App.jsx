@@ -18,7 +18,7 @@ const App = () => {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/kontakt" element={<Privacy />} />
 
           {/* Registration Route */}
           <Route 
