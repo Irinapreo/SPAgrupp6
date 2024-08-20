@@ -1,6 +1,6 @@
 [
     {
       "username": "username",
-      "password": "password" // Replace this with the actual bcrypt hash
+      "password": "password"
     }
   ]
