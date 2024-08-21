@@ -153,7 +153,8 @@ footer a:hover {
   padding:5px 35px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
-  margin: 20px;
+  margin: 60px;
+  margin-top: -25px;
 }
 
 .col-md-6 {
@@ -345,7 +346,7 @@ body.light-theme #theme-toggle:hover {
 
 
 body.light-theme h1 {
-color: #06d311;
+color: #1861ac;
 }
 
 body.light-theme header {
@@ -437,6 +438,7 @@ body.light-theme .footer a:hover {
   text-decoration: underline;
 }
 
+
 #btn-home{
   position: fixed;
   left: 20px;
@@ -448,6 +450,24 @@ body.light-theme .footer a:hover {
   left: 80px;
   top: 20px;
 }
+
+.article-count {
+  color: #ffffff; 
+  background-color: #1F2833; 
+  border: 2px solid #66FCF1;
+  border-radius: 100px; 
+  padding: 10px 20px; 
+  margin: 2px;
+  font-weight: inherit;
+}
+
+
+body.light-theme .article-count {
+  color: #120A15; 
+  background-color: #E4EDFC;
+  border-color: #1861ac; 
+}
+
 
 #btn-login{
   position: fixed;

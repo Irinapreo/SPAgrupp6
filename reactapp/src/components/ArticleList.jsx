@@ -16,7 +16,7 @@ const ArticleList = () => {
                 if (searchString) params.append('searchString', searchString);
                 if (topic) params.append('topic', topic);
                 if (sortBy) params.append('sortBy', sortBy);
-        
+
                 const response = await fetch(`http://localhost:3000/api/articles?${params.toString()}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -25,9 +25,8 @@ const ArticleList = () => {
                 setArticles(data);
             } catch (error) {
                 console.error('Error fetching articles:', error);
-            }
-            finally {
-                setIsLoading(false); // Set loading state to false after fetch completes
+            } finally {
+                setIsLoading(false);
             }
         };
 
@@ -35,18 +34,17 @@ const ArticleList = () => {
     }, [searchString, topic, sortBy]);
 
     const filteredArticles = articles.filter(
-  (article) => article.title.toLowerCase().includes(searchString.toLowerCase())
-);
+        (article) => article.title.toLowerCase().includes(searchString.toLowerCase())
+    );
 
     const handleSearch = (e) => {
-  const searchQuery = e.target.value;
-  debouncedSearch(searchQuery);
+        const searchQuery = e.target.value;
+        debouncedSearch(searchQuery);
     };
-    
+
     const debouncedSearch = debounce((query) => {
-  setSearchString(query);
+        setSearchString(query);
     }, 300);
-    
 
     const handleTopicChange = (newTopic) => {
         setTopic(newTopic);
@@ -57,8 +55,8 @@ const ArticleList = () => {
     };
 
     const handleResetTopic = () => {
-  setTopic('');
-};
+        setTopic('');
+    };
 
     const topicDisplayNames = {
         "Halsa": "Hälsa",
@@ -72,8 +70,7 @@ const ArticleList = () => {
     };
 
     return (
-
-        <div className="container" >
+        <div className="container">
             <h1>Artiklar</h1>
 
             <form onSubmit={handleSearch} className="search-form">
@@ -85,7 +82,6 @@ const ArticleList = () => {
                         name="searchString"
                         onChange={(e) => setSearchString(e.target.value)}
                     />
-                    {/* <button type="submit" className="btn btn-outline-primary">Sök</button> */}
                 </div>
             </form>
 
@@ -98,14 +94,15 @@ const ArticleList = () => {
                     </button>
                     {Object.entries(topicDisplayNames).map(([key, value]) => (
                         <button
-                        key={key}
-                        className="btn btn-primary"
-                        onClick={() => handleTopicChange(key)}>
-                        {value}
+                            key={key}
+                            className="btn btn-primary"
+                            onClick={() => handleTopicChange(key)}>
+                            {value}
                         </button>
                     ))}
                 </div>
             </div>
+
             <div className="row mt-2">
                 <div className="col-md-12">
                     <button
@@ -121,10 +118,17 @@ const ArticleList = () => {
                 </div>
             </div>
 
-           <div className="row mt-4">
-  {filteredArticles.length > 0 ? (
-    filteredArticles.map((article, index) => (
-                <div key={index} className="col-md-6 col-lg-4 mb-4">
+            {/* Display the count of currently shown articles */}
+            <div className="row mt-4">
+                <div className="col-md-12">
+                <h4 className="article-count">Antal artiklar: {filteredArticles.length}</h4>
+                </div>
+            </div>
+
+            <div className="row mt-4">
+                {filteredArticles.length > 0 ? (
+                    filteredArticles.map((article, index) => (
+                        <div key={index} className="col-md-6 col-lg-4 mb-4">
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">{article.title}</h5>
