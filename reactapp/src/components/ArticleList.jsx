@@ -33,10 +33,6 @@ const ArticleList = () => {
         fetchArticles();
     }, [searchString, topic, sortBy]);
 
-    const filteredArticles = articles.filter(
-        (article) => article.title.toLowerCase().includes(searchString.toLowerCase())
-    );
-
     const handleSearch = (e) => {
         const searchQuery = e.target.value;
         debouncedSearch(searchQuery);
@@ -69,6 +65,18 @@ const ArticleList = () => {
         "Idrott": "Idrott"
     };
 
+    const highlightText = (text, highlight) => {
+        if (!highlight) return text;
+        const regex = new RegExp(`(${highlight})`, 'gi');
+        return text.split(regex).map((part, index) =>
+            regex.test(part) ? <mark key={index}>{part}</mark> : part
+        );
+    };
+
+    const filteredArticles = articles.filter(
+        (article) => article.title.toLowerCase().includes(searchString.toLowerCase())
+    );
+
     return (
         <div className="container">
             <h1>Artiklar</h1>
@@ -80,7 +88,7 @@ const ArticleList = () => {
                         className="form-control"
                         placeholder="Sök artiklar..."
                         name="searchString"
-                        onChange={(e) => setSearchString(e.target.value)}
+                        onChange={handleSearch}
                     />
                 </div>
             </form>
@@ -121,7 +129,7 @@ const ArticleList = () => {
             {/* Display the count of currently shown articles */}
             <div className="row mt-4">
                 <div className="col-md-12">
-                <h4 className="article-count">Antal artiklar: {filteredArticles.length}</h4>
+                    <h4 className="article-count">Antal artiklar: {filteredArticles.length}</h4>
                 </div>
             </div>
 
@@ -131,8 +139,8 @@ const ArticleList = () => {
                         <div key={index} className="col-md-6 col-lg-4 mb-4">
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">{article.title}</h5>
-                                    <p className="card-text">{article.summary}</p>
+                                    <h5 className="card-title">{highlightText(article.title, searchString)}</h5>
+                                    <p className="card-text">{highlightText(article.summary, searchString)}</p>
                                     <a href={article.link} className="card-link" target="_blank" rel="noopener noreferrer">Läs mer</a>
                                     <p className="card-text"><small className="text-muted">{new Date(article.published).toLocaleDateString()}</small></p>
                                 </div>
