@@ -437,3 +437,20 @@ body.light-theme .footer a:hover {
   text-decoration: underline;
 }
 
+#btn-home{
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
+
+#btn-kontakt{
+  position: fixed;
+  left: 80px;
+  top: 20px;
+}
+
+#btn-login{
+  position: fixed;
+  left: 150px;
+  top: 20px;
+}
