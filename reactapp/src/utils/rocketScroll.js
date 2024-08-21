@@ -1,15 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     var rocket = document.getElementById("rocket");
     var rocketHeight = rocket.offsetHeight;
-    var stopOffset = 50; // Offset from the bottom of the viewport
+    var stopOffset = 50;
     var maxBottom = window.innerHeight - rocketHeight - stopOffset;
 
     function handleScroll() {
-        // Calculate the total scrollable height
         var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        // Get the current scroll position as a percentage
         var scrollPercent = window.scrollY / scrollHeight;
-        // Calculate the new top position for the rocket within the viewport
         var newTop = scrollPercent * maxBottom;
         rocket.style.top = newTop + "px";
     }
@@ -17,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("scroll", handleScroll);
 
     rocket.addEventListener('click', function() {
+        // Scroll to the top of the page instantly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
         const totalFrames = 21; // Total number of rocket images
         let currentFrame = 1;
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // If the last frame is reached, stop the animation
             if (currentFrame > totalFrames) {
                 clearInterval(animationInterval);
-                // Move rocket to the top of the document
+                // Apply the rotation and move rocket to the top of the page
                 rocket.style.transform = 'rotate(360deg)';
                 rocket.style.top = '0px';  // Move to the top of the page
             }
