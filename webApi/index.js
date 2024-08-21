@@ -10,7 +10,7 @@ const { expressjwt: expressJwt } = require('express-jwt');
 
 app.use(cors());
 
-const USERS_FILE = './users.json';
+const USERS_FILE = '../reactapp/users.json';
 
 app.use(cors());
 app.use(express.json());
