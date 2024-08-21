@@ -231,6 +231,8 @@ footer a:hover {
   background-color: #1f2833 !important;
   color: #E4EDFC !important;
   transition: background-color 0.3s ease, color 0.3s ease;
+  position: fixed;
+  right: 20px; 
 }
 
 #theme-toggle:hover {
@@ -244,6 +246,7 @@ footer a:hover {
   background-color: #120A15;
   color: #E4EDFC;
 }
+
 
 .btn-primary {
   color: #ffffff;
@@ -435,6 +438,19 @@ body.light-theme .footer a:hover {
   text-decoration: underline;
 }
 
+
+#btn-home{
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
+
+#btn-kontakt{
+  position: fixed;
+  left: 80px;
+  top: 20px;
+}
+
 .article-count {
   color: #ffffff; 
   background-color: #1F2833; 
@@ -453,6 +469,8 @@ body.light-theme .article-count {
 }
 
 
-
-
-
+#btn-login{
+  position: fixed;
+  left: 150px;
+  top: 20px;
+}

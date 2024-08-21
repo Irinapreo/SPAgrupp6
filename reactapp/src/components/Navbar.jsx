@@ -43,13 +43,13 @@ const Navbar = () => {
                 <div className="navbar-collapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/">Home</Link>
+                            <Link className="nav-link text-dark" id="btn-home" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/kontakt">Kontakt</Link>
+                            <Link className="nav-link text-dark" id="btn-kontakt" to="/kontakt">Kontakt</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/login">Login</Link>
+                            <Link className="nav-link text-dark" id="btn-login" to="/login">Login</Link>
                         </li>
                     </ul>
                     <button className="btn btn-light" id="theme-toggle" onClick={toggleTheme}>Light Theme</button>
