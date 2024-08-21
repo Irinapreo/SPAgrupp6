@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate} from 'react-router-dom';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     const response = await fetch('http://localhost:3000/login', {
@@ -14,6 +17,8 @@ const Login = () => {
     if (data.token) {
       localStorage.setItem('token', data.token);
       alert('Login successful');
+      navigate('/');
+
     } else {
       alert(data.message);
     }
