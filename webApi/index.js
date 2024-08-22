@@ -1,4 +1,5 @@
 ﻿const express = require("express");
+const mysql = require('mysql2');
 const cors = require("cors");
 const app = express();
 const port = 3000;
@@ -14,6 +15,14 @@ const USERS_FILE = '../reactapp/users.json';
 
 app.use(cors());
 app.use(express.json());
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "sys23m",
+  database: "NewSite"
+});
+
 
 // Helper function to read users from a file
 const readUsersFromFile = () => {
