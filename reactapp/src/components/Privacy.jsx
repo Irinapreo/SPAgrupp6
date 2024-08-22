@@ -1,7 +1,17 @@
-// src/components/Privacy.jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Importera useNavigate
 import '../assets/privacy.css'; // Import privacy-specific styles
 
 const Privacy = () => {
+    const navigate = useNavigate(); 
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        
+        navigate('/kontakt/borat'); 
+    };
+
     return (
         <div className="privacy-container">
             <h1>Kontakt</h1>
@@ -10,7 +20,7 @@ const Privacy = () => {
                 <p>Vi värnar om din trygghet och lovar att inte lämna ut dina personuppgifter till någon utomstående part. Dina uppgifter används endast för att förbättra din användarupplevelse och för att kunna kontakta dig vid behov.</p>
                 <div className="title-container">
                     <h2>Kontaktformulär</h2>
-                    <form method="post" action="/kontakt/borat" className="privacy-form">
+                    <form onSubmit={handleSubmit} className="privacy-form">
                         <div className="form-group">
                             <label htmlFor="name">Namn:</label>
                             <input type="text" id="name" name="name" required />

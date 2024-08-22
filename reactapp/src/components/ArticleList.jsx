@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import debounce from 'lodash.debounce';
+import { useLocation } from 'react-router-dom';  // Import useLocation
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
@@ -7,6 +8,8 @@ const ArticleList = () => {
     const [topic, setTopic] = useState('');
     const [sortBy, setSortBy] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    
+    const location = useLocation(); // Get the current location
 
     useEffect(() => {
         const fetchArticles = async () => {
@@ -77,9 +80,16 @@ const ArticleList = () => {
         (article) => article.title.toLowerCase().includes(searchString.toLowerCase())
     );
 
+    // Check if the current path is the Borat page
+    const isBoratPage = location.pathname === '/borat';
+
     return (
         <div className="container">
-            <h1>Artiklar</h1>
+            {!isBoratPage && (
+                <header>
+                    <h1>Artiklar</h1>
+                </header>
+            )}
 
             <form onSubmit={handleSearch} className="search-form">
                 <div className="input-group">

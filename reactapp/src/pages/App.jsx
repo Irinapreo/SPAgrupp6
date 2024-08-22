@@ -1,4 +1,3 @@
-// src/pages/App.jsx
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -11,47 +10,47 @@ import Home from "./Home";
 import Privacy from "../components/Privacy";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import Borat from "../components/Borat";
 
 const App = () => {
-  // Helper functions to check authentication and registration status
   const isAuthenticated = () => localStorage.getItem("token") !== null;
   const isUserRegistered = () =>
     localStorage.getItem("userRegistered") === "true";
 
   return (
     <Router>
+      <Layout>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/kontakt" element={<Privacy />} />
+          <Route path="/borat" element={<Borat />} />
+          <Route path="/kontakt/borat" element={<Borat />} />
 
-        <Layout>
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/kontakt" element={<Privacy />} />
+          {/* Registration Route */}
+          <Route
+            path="/register"
+            element={
+              isUserRegistered() ? (
+                <Navigate to="/login" replace />
+              ) : (
+                <Register />
+              )
+            }
+          />
 
-            {/* Registration Route */}
-            <Route
-              path="/register"
-              element={
-                isUserRegistered() ? (
-                  <Navigate to="/login" replace />
-                ) : (
-                  <Register />
-                )
-              }
-            />
+          {/* Login Route */}
+          <Route
+            path="/login"
+            element={
+              isAuthenticated() ? <Navigate to="/" replace /> : <Login />
+            }
+          />
 
-            {/* Login Route */}
-            <Route
-              path="/login"
-              element={
-                isAuthenticated() ? <Navigate to="/" replace /> : <Login />
-              }
-            />
-
-            {/* Redirect any unknown route to home */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Layout>
-
+          {/* Redirect any unknown route to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 };
