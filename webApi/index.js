@@ -20,7 +20,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "sys23m",
-  database: "NewSite"
+  database: "NewsSite"
 });
 
 
