@@ -25,6 +25,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/kontakt" element={<Privacy />} />
           <Route path="/borat" element={<Borat />} />
+
+          {/* Ny route för /kontakt/borat */}
           <Route path="/kontakt/borat" element={<Borat />} />
 
           {/* Registration Route */}
