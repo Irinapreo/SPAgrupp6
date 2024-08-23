@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
     var rocket = document.getElementById("rocket");
     var rocketHeight = rocket.offsetHeight;
-    var stopOffset = 50;
-    var maxBottom = window.innerHeight - rocketHeight - stopOffset;
+    
+    var startOffset = 15;
+    var endOffset = 50;
 
     function handleScroll() {
         var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        var scrollPercent = window.scrollY / scrollHeight;
-        var newTop = scrollPercent * maxBottom;
+        var scrollY = window.scrollY;
+        var scrollPercent = scrollY / scrollHeight;
+
+        var newTop = scrollPercent * (window.innerHeight - rocketHeight - endOffset) + startOffset;
         rocket.style.top = newTop + "px";
     }
 
@@ -26,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (currentFrame > totalFrames) {
                 clearInterval(animationInterval);
                 rocket.style.transform = 'rotate(360deg)';
-                rocket.style.top = '0px';
+                rocket.style.top = '15px';
             }
         }
 
