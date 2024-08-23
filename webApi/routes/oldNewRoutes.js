@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const articleController = require('../controllers/oldNewSort');
+const articleController = require('../models/oldNewSort');
 
 router.get('/', articleController.getArticles);
 

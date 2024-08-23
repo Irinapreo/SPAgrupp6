@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/api/articles", oldNewRoutes);
+app.use("/api/articles/oldnew", oldNewRoutes);
 app.get("/api/articles", articleController.getArticles);
 app.use("/api/rss", rssRoutes);
 app.use("/api/auth", authRoutes);
