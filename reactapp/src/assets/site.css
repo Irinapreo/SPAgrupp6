@@ -325,6 +325,16 @@ footer a:hover {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
+  #rocket {
+    position: fixed;
+    top: 12px;
+    bottom: 50;
+    right: -35px;
+    width: 150px;
+    cursor: pointer;
+}
+
+
 /* Light Theme Styles */
 body.light-theme {
   color: #120A15;

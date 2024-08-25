@@ -1,39 +1,38 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var rocket = document.getElementById("following-image");
-    var initialTop = rocket.offsetTop;
+    var rocket = document.getElementById("rocket");
     var rocketHeight = rocket.offsetHeight;
-    var stopOffset = 50; // Adjust this value to set how much higher from the bottom the rocket should stop
-    var maxBottom = window.innerHeight - rocketHeight - initialTop - stopOffset;
+    
+    var startOffset = 15;
+    var endOffset = 50;
 
     function handleScroll() {
-        // Calculate the total scrollable height
         var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        // Get the current scroll position as a percentage
-        var scrollPercent = window.scrollY / scrollHeight;
-        // Calculate the new top position for the rocket
-        var newTop = initialTop + (scrollPercent * maxBottom);
-        newTop = Math.min(newTop, maxBottom);
-        if (newTop >= 0) {
-            rocket.style.top = newTop + "px";
+        var scrollY = window.scrollY;
+        var scrollPercent = scrollY / scrollHeight;
+
+        var newTop = scrollPercent * (window.innerHeight - rocketHeight - endOffset) + startOffset;
+        rocket.style.top = newTop + "px";
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    rocket.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        const totalFrames = 21;
+        let currentFrame = 1;
+
+        function animateRocket() {
+            rocket.src = `/images/Rocket/Rocket${currentFrame}.png`;
+            currentFrame++;
+
+            if (currentFrame > totalFrames) {
+                clearInterval(animationInterval);
+                rocket.style.transform = 'rotate(360deg)';
+                rocket.style.top = '15px';
+            }
         }
-    }
 
-    window.addEventListener("scroll", handleScroll);
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    function handleScroll() {
-        // Calculate the total scrollable height
-        var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        // Get the current scroll position as a percentage
-        var scrollPercent = window.scrollY / scrollHeight;
-        // Calculate the new background position
-        var newPosition = scrollPercent * 100; // Adjust the multiplier as needed
-        // Apply the new background position
-        document.body.style.backgroundPosition = `center ${newPosition}%`;
-    }
-
-    window.addEventListener("scroll", handleScroll);
+        const animationInterval = setInterval(animateRocket, 50);
+    });
 });
