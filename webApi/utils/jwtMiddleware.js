@@ -1,10 +1,17 @@
-// utils/jwtMiddleware.js
-const { expressjwt: expressJwt } = require("express-jwt");
+const jwt = require("jsonwebtoken");
 
-const jwtMiddleware = expressJwt({
-  secret: "your_jwt_secret",
-  algorithms: ["HS256"],
-  credentialsRequired: false, // Gör att middleware inte krävs för alla rutter
-});
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1]; // Format: Bearer TOKEN
 
-module.exports = jwtMiddleware;
+  if (token == null) return res.status(401).json({ message: "Token required" });
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ message: "Invalid token" });
+
+    req.user = user; // Lägg till användardata i request objektet
+    next();
+  });
+};
+
+module.exports = authenticateToken;
