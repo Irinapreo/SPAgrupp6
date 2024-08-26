@@ -1,3 +1,4 @@
+const db = require("../models/db");
 const articleModel = require("../models/articleModel");
 
 const addArticle = (req, res) => {
@@ -15,6 +16,7 @@ const getArticles = (req, res) => {
   const sortBy = req.query.sortBy || "newest";
   const limit = req.query.limit || ''; 
   articleModel.getArticles(sortBy, limit, (error, results) => {
+
     if (error) {
       console.error("Error fetching articles:", error);
       return res.status(500).send("Error fetching articles");

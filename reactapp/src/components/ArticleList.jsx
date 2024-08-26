@@ -13,6 +13,11 @@ const ArticleList = () => {
         const fetchArticles = async () => {
             setIsLoading(true);
             try {
+                console.log('Fetching articles with:', {
+                    searchString,
+                    topic,
+                    sortBy,
+                });
                 const params = new URLSearchParams();
                 if (searchString) params.append('searchString', searchString);
                 if (topic) params.append('topic', topic);
@@ -42,6 +47,7 @@ const ArticleList = () => {
     };
 
     const debouncedSearch = debounce((query) => {
+        console.log('Searching for:', query);
         setSearchString(query);
     }, 300);
 
@@ -69,12 +75,13 @@ const ArticleList = () => {
     };
 
     const highlightText = (text, highlight) => {
-        if (!highlight) return text;
-        const regex = new RegExp(`(${highlight})`, 'gi');
-        return text.split(regex).map((part, index) =>
-            regex.test(part) ? <mark key={index}>{part}</mark> : part
-        );
-    };
+    if (!text) return '';  // Om text är null eller undefined, returnera en tom sträng
+    if (!highlight) return text;
+    const regex = new RegExp(`(${highlight})`, 'gi');
+    return text.split(regex).map((part, index) =>
+        regex.test(part) ? <mark key={index}>{part}</mark> : part
+    );
+};
 
     const filteredArticles = articles.filter(
         (article) => article.Title.toLowerCase().includes(searchString.toLowerCase())
