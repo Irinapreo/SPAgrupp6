@@ -64,27 +64,30 @@ const ArticleList = () => {
     };
 
     const topicDisplayNames = {
-        "Halsa": "Hälsa",
-        "SamhalleKonflikter": "Samhälle och Konflikter",
-        "Miljo": "Miljö",
-        "VetenskapTeknik": "Vetenskap och Teknik",
-        "LivsstillFritt": "Livsstil och Fritid",
-        "Ekonomi": "Ekonomi",
-        "Religion": "Religion",
-        "Idrott": "Idrott"
+        "general": "General",
+        "halsa": "Hälsa",
+        "livsstillfritt": "Livsstil och Fritid",
+        "ekonomi": "Ekonomi",
+        "religion": "Religion",
+        "sport": "Sport",
+        "varlden": "Världen",
+        "ledare": "Ledare",
+        "kultur": "Kultur",
     };
 
     const highlightText = (text, highlight) => {
-    if (!text) return '';  // Om text är null eller undefined, returnera en tom sträng
-    if (!highlight) return text;
-    const regex = new RegExp(`(${highlight})`, 'gi');
-    return text.split(regex).map((part, index) =>
-        regex.test(part) ? <mark key={index}>{part}</mark> : part
-    );
-};
+        if (!text) return '';  // Handle null or undefined text
+        if (!highlight) return text;
+        const regex = new RegExp(`(${highlight})`, 'gi');
+        return text.split(regex).map((part, index) =>
+            regex.test(part) ? <mark key={index}>{part}</mark> : part
+        );
+    };
 
     const filteredArticles = articles.filter(
-        (article) => article.Title.toLowerCase().includes(searchString.toLowerCase())
+        (article) =>
+            (!topic || article.Topic.toLowerCase() === topic.toLowerCase()) &&  // Filter by topic
+            article.Title.toLowerCase().includes(searchString.toLowerCase())    // Filter by search string
     );
 
     return (
@@ -138,7 +141,7 @@ const ArticleList = () => {
 
             <div className="row mt-4">
                 <div className="col-md-12 article-count">
-                    <div className = "articleNum">Visa antal artiklar:</div>
+                    <div className="articleNum">Visa antal artiklar:</div>
                     <select onChange={handleItemsPerPageChange} value={itemsPerPage} className="form-select">
                         <option value="10">10</option>
                         <option value="25">25</option>
