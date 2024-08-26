@@ -1,6 +1,5 @@
 const db = require("./db");
 const bcrypt = require("bcryptjs");
-const argon2 = require("argon2");
 
 const createUserTable = () => {
   const query = `CREATE TABLE IF NOT EXISTS users (
@@ -17,13 +16,13 @@ const createUserTable = () => {
 
 const registerUser = (username, password, callback) => {
   const hashedPassword = bcrypt.hashSync(password, 8);
-  const query = "INSERT INTO users (username, password) VALUES (?, ?)";
+  const query = `INSERT INTO users (username, password) VALUES (?, ?)`;
 
   db.query(query, [username, hashedPassword], callback);
 };
 
 const findUserByUsername = (username, callback) => {
-  const query = "SELECT * FROM users WHERE username = ?";
+  const query = `SELECT * FROM users WHERE username = ?`;
   db.query(query, [username], (err, results) => {
     if (err) {
       return callback(err);

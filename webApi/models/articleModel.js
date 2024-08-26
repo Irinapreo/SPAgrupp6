@@ -7,9 +7,9 @@ const createArticle = (Title, Summary, Link, Published, Topic, callback) => {
 };
 
 const getArticles = (sortBy, callback) => {
-  let query = "SELECT * FROM articles";
-  if (sortBy === "newest") {
-    query += " ORDER BY Published DESC";
+  let query = `SELECT * FROM articles`;
+  if (sortBy === `newest`) {
+    query += ` ORDER BY Published DESC`;
   }
   db.query(query, callback);
 };
