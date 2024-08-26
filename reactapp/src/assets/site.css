@@ -304,6 +304,40 @@ footer a:hover {
     align-items: center;
 }
 
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  background-color: #cccdbf;
+  border:
+    3px solid #7cc8d7;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background-color:
+    #4CAF50;
+  /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color:
+    #3e8e41;
+  /* Darker Green */
+}
+
+.register-username, .register-password {
+  background-color: #1F2833;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
 .custom-input {
   color: #ffffff;
   background-color: #1F2833;
@@ -461,16 +495,26 @@ body.light-theme .footer a:hover {
   font-weight: inherit;
 }
 
-
 body.light-theme .article-count {
   color: #120A15; 
   background-color: #E4EDFC;
   border-color: #1861ac; 
 }
 
-
 #btn-login{
   position: fixed;
   left: 150px;
   top: 20px;
+}
+
+.noAccount {
+  font-size: 16px;
+  font-weight: bolder;
+  color: rgb(10, 10, 10);
+}
+
+.regLink {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(220, 21, 28);
 }

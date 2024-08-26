@@ -1,5 +1,4 @@
 const mysql = require("mysql2");
-const argon2 = require("argon2");
 
 const db = mysql.createConnection({
   host: "localhost",
