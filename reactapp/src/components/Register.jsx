@@ -17,7 +17,7 @@ const Register = () => {
       const data = await response.json();
       alert(data.message);
 
-      if (response.status === 201) {
+      if (response.ok) {
         localStorage.setItem('userRegistered', 'true');
         navigate('/login');
       }
