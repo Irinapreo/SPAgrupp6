@@ -5,10 +5,13 @@ const createArticle = (Title, Summary, Link, Published, Topic, callback) => {
   db.query(query, [Title, Summary, Link, Published, Topic], callback);
 };
 
-const getArticles = (sortBy, callback) => {
+const getArticles = (sortBy, limit, callback) => {
   let query = "SELECT * FROM articles";
   if (sortBy === "newest") {
     query += " ORDER BY Published DESC";
+  }
+  if (limit) {
+    query += ` LIMIT ${parseInt(limit, 10)}`;
   }
   db.query(query, callback);
 };

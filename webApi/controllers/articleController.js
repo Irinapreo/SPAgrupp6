@@ -13,7 +13,8 @@ const addArticle = (req, res) => {
 
 const getArticles = (req, res) => {
   const sortBy = req.query.sortBy || "newest";
-  articleModel.getArticles(sortBy, (error, results) => {
+  const limit = req.query.limit || ''; 
+  articleModel.getArticles(sortBy, limit, (error, results) => {
     if (error) {
       console.error("Error fetching articles:", error);
       return res.status(500).send("Error fetching articles");

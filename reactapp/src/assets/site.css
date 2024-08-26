@@ -461,6 +461,14 @@ body.light-theme .footer a:hover {
   top: 20px;
 }
 
+
+
+body.light-theme .articleNum {
+  color: #120A15; 
+  background-color: #E4EDFC;
+}
+
+
 .article-count {
   color: #ffffff; 
   background-color: #1F2833; 
