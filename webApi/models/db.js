@@ -14,6 +14,8 @@ db.connect((err) => {
   }
   console.log("Connected to the database");
 
+  const dropTableQuery = `DROP TABLE IF EXISTS articles`;
+
   // Skapa artikeltabell om den inte finns
   const articlesTableQuery = `CREATE TABLE IF NOT EXISTS articles (
     Title VARCHAR(255) NOT NULL,
@@ -22,6 +24,14 @@ db.connect((err) => {
     Published DATE DEFAULT NULL,
     Topic VARCHAR(100) DEFAULT NULL
   )`;
+
+  db.query(dropTableQuery, (err, result) => {
+    if (err) {
+      console.error("Error dropping articles table after connection:", err);
+    } else {
+      console.log('Table "articles" droped. Result:', result);
+    }
+  });
 
   db.query(articlesTableQuery, (err, result) => {
     if (err) {

@@ -359,6 +359,16 @@ button[type="submit"]:hover {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
+  #rocket {
+    position: fixed;
+    top: 12px;
+    bottom: 50;
+    right: -35px;
+    width: 150px;
+    cursor: pointer;
+}
+
+
 /* Light Theme Styles */
 body.light-theme {
   color: #120A15;
@@ -484,6 +494,14 @@ body.light-theme .footer a:hover {
   left: 80px;
   top: 20px;
 }
+
+
+
+body.light-theme .articleNum {
+  color: #120A15; 
+  background-color: #E4EDFC;
+}
+
 
 .article-count {
   color: #ffffff; 
