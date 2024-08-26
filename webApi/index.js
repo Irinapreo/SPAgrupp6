@@ -1,6 +1,6 @@
 ﻿const express = require("express");
+const axios = require("axios");
 const cors = require("cors");
-const { expressjwt: expressJwt } = require("express-jwt");
 const app = express();
 const port = 3000;
 const articleController = require("./controllers/articleController");
@@ -26,4 +26,12 @@ app.use("/api/protected", jwtMiddleware, (req, res) => {
 
 app.listen(port, () => {
   console.log(`Backend API running at http://localhost:${port}`);
+  try {
+    const response = axios.get(
+      "http://localhost:3000/api/rss/fetch-and-store-rss"
+    );
+    console.log("RSS feed fetched and stored:", response.data);
+  } catch (error) {
+    console.error("Error fetching RSS feed:", error);
+  }
 });
