@@ -1,5 +1,7 @@
-﻿const express = require("express");
+const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
 const app = express();
 const axios = require("axios");
 const port = 3000;
@@ -10,14 +12,17 @@ const articleRoutes = require("./routes/articleRoutes");
 const oldNewRoutes = require("./routes/oldNewRoutes");
 const rssRoutes = require("./routes/rssRoutes");
 
+dotenv.config();
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use("/api/auth", authRoutes);
 app.use("/api/articles/oldnew", oldNewRoutes);
 app.get("/api/articles", articleController.getArticles);
 app.use("/api/rss", rssRoutes);
-app.use("/api/auth", authRoutes);
 app.use("/api/articles", articleRoutes);
 
 app.use("/api/protected", jwtMiddleware, (req, res) => {

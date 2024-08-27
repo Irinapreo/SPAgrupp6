@@ -8,7 +8,7 @@ const Register = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch('http://localhost:3000/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -17,7 +17,7 @@ const Register = () => {
       const data = await response.json();
       alert(data.message);
 
-      if (response.status === 201) {
+      if (response.ok) {
         localStorage.setItem('userRegistered', 'true');
         navigate('/login');
       }
@@ -28,31 +28,35 @@ const Register = () => {
   };
 
   return (
-    <div>
+<div>
       <h1>Register</h1>
-      <form className='container center'>
-        <div className="custom-input" >
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="custom-input">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div >
-        <button className="custom-input" type="button" onClick={handleRegister}>
-          Register
-        </button>
-      </form>
-    </div>
-  );
+      <form className="container center" onSubmit={handleRegister}>
+       <div className="register-username">
+        <label htmlFor="username">Username:</label>
+         <input
+           id="username" 
+           name="username"
+           type="text"
+           value={username}
+           onChange={(e) => setUsername(e.target.value)}
+           />
+         </div>
+         <div className="register-password">
+         <label htmlFor="password">Password:</label>
+         <input
+           id="password" 
+           name="password" 
+           type="password"
+           value={password}
+           onChange={(e) => setPassword(e.target.value)}
+         />
+         </div>
+         <button className="custom-input" type="submit">
+         Register
+         </button>
+       </form>
+     </div>
+   );
 };
 
 export default Register;

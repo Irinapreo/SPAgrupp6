@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 
 
-const Login = () => {
+const Login = ({onLogin}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch('http://localhost:3000/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -16,6 +16,7 @@ const Login = () => {
     const data = await response.json();
     if (data.token) {
       localStorage.setItem('token', data.token);
+      onLogin(data.token)
       alert('Login successful');
       navigate('/');
 
@@ -30,7 +31,8 @@ const Login = () => {
       <div className='container center'>
       <input className="custom-input" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
       <input className="custom-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button className="custom-input" onClick={handleLogin}>Login</button>
+        <button className="custom-input" onClick={handleLogin}>Login</button>
+        <p className='noAccount'>Har du inget konto? <Link to="/register" className='regLink'>Tryck här för att registrera dig</Link></p>
       </div>
       
     </div>

@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { toggleTheme } from '../utils/themeToggle';
 
-const Navbar = () => {
+const Navbar = ({ isAuthenticated, onLogout }) => {
+
     const playSound = () => {
         const audioFiles = [
             '/assets/audio/homePlease.mp3',
@@ -18,38 +20,38 @@ const Navbar = () => {
             console.error('Error playing sound:', error); 
         });
     };
-  
 
     useEffect(() => {
       const navbarBrand = document.querySelector('.navbar-brand');
       if (navbarBrand) {
         navbarBrand.addEventListener('click', playSound);
       }
-  
+
       return () => {
         if (navbarBrand) {
           navbarBrand.removeEventListener('click', playSound);
         }
       };
     }, []);
-  
+
     return (
         <nav className="navbar navbar-light navbar-custom border-bottom box-shadow">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Grupp VI</Link>
-                {/* {<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                    <span className="navbar-toggler-icon"></span>
-                </button>} */}
                 <div className="navbar-collapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" id="btn-home" to="/">Home</Link>
+                            <Link className="nav-link text-dark" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" id="btn-kontakt" to="/kontakt">Kontakt</Link>
+                            <Link className="nav-link text-dark" to="/kontakt">Kontakt</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" id="btn-login" to="/login">Login</Link>
+                            {isAuthenticated ? (
+                                <Link className="nav-link text-dark" onClick={onLogout}>Logout</Link>                                                                    
+                            ) : (
+                                <Link className="nav-link text-dark" to="/login">Login</Link>
+                            )}
                         </li>
                     </ul>
                     <button className="btn btn-light" id="theme-toggle" onClick={toggleTheme}>Light Theme</button>
@@ -57,8 +59,11 @@ const Navbar = () => {
             </div>
         </nav>
     );
-  };
-  
-export default Navbar;
+};
 
-console.log("Navbar component rendered");
+Navbar.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  onLogout: PropTypes.func.isRequired,
+};
+
+export default Navbar;
