@@ -6,7 +6,8 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleRegister = async () => {
+  const handleRegister = async (event) => {
+    event.preventDefault();
     try {
       const response = await fetch('http://localhost:3000/api/auth/register', {
         method: 'POST',
@@ -60,3 +61,4 @@ const Register = () => {
 };
 
 export default Register;
+
