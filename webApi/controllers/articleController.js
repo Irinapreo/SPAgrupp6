@@ -16,8 +16,32 @@ const getArticles = async (req, res) => {
   try {
     const sortBy = req.query.sortBy || "newest";
     const limit = req.query.limit || "";
-    const articles = await articleModel.getArticles(sortBy, limit); // Använder await för att hämta artiklar
-    res.json(articles); // Returnera resultaten som JSON
+    const topic = req.query.topic || "";
+    let query = "SELECT * FROM articles";
+
+    if (topic) {
+      query += ` WHERE Topic = '${topic}'`;
+    }
+
+    // Korrekt hantering av sortering
+    if (sortBy === "newest") {
+      query += " ORDER BY Published DESC";
+    } else if (sortBy === "oldest") {
+      query += " ORDER BY Published ASC";
+    }
+
+    if (limit) {
+      query += ` LIMIT ${parseInt(limit, 10)}`;
+    }
+
+    console.log("SQL Query:", query); // Debugging SQL query
+
+    db.query(query, (error, results) => {
+      if (error) {
+        return res.status(500).send("Error fetching articles");
+      }
+      res.json(results);
+    });
   } catch (error) {
     console.error("Error fetching articles:", error);
     res.status(500).send("Error fetching articles");

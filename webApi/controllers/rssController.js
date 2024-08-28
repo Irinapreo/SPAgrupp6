@@ -16,6 +16,20 @@ const categoryMapping = {
   kultur: "Kultur",
 };
 
+const keywordMapping = {
+  halsa: ["hälsa", "sjukvård", "medicin"],
+  samhallekonflikter: ["konflikt", "samhälle", "krig", "nyheter"],
+  miljo: ["miljö", "klimat", "natur"],
+  vetenskapteknik: ["vetenskap", "teknik", "forskning"],
+  livsstillfritt: ["livsstil", "fritid", "hälsa", "nöje"],
+  ekonomi: ["ekonomi", "marknad", "pengar", "näringsliv", "börs"],
+  religion: ["religion", "tro", "kyrka"],
+  sport: ["sport", "fotboll", "hockey"],
+  varlden: ["världen", "internationell", "utrikes", "Inrikes", "Sverige"],
+  ledare: ["ledare", "politik", "beslut"],
+  kultur: ["kultur", "konst", "film"],
+};
+
 const fetchAndStoreRSS = async (req, res) => {
   try {
     console.log("Fetching RSS feeds...");
@@ -33,9 +47,18 @@ const fetchAndStoreRSS = async (req, res) => {
         continue;
       }
 
-      const publishedDate = new Date(post.pubDate).toISOString().split("T")[0];
-      let category = "General";
+      let publishedDate;
+      try {
+        publishedDate = new Date(post.pubDate).toISOString().split("T")[0];
+      } catch (error) {
+        console.error(
+          `Error parsing date for post: ${post.title}, Date: ${post.pubDate}`,
+          error
+        );
+        publishedDate = new Date().toISOString().split("T")[0]; // Fallback till dagens datum om det misslyckas
+      }
 
+      let category = "General";
       // Split the URL by '/' and check each part
       const urlSegments = post.link.toLowerCase().split("/"); // Convert URL to lowercase
       for (const segment of urlSegments) {
@@ -45,10 +68,35 @@ const fetchAndStoreRSS = async (req, res) => {
         }
       }
 
+      if (category === "General") {
+        const lowerTitle = post.title.toLowerCase();
+        const lowerSummary = (
+          post.contentSnippet ||
+          post.summary ||
+          ""
+        ).toLowerCase();
+
+        for (const [key, keywords] of Object.entries(keywordMapping)) {
+          if (
+            keywords.some(
+              (keyword) =>
+                lowerTitle.includes(keyword) || lowerSummary.includes(keyword)
+            )
+          ) {
+            category = categoryMapping[key];
+            break;
+          }
+        }
+      }
+
+      if (category === "General") {
+        console.log(`General category for post: ${post.title}`);
+      }
+
       // Insert the post into the database
       await insertPost(
         post.title,
-        post.contentSnippet || post.summary,
+        post.contentSnippet || post.summary || post.content || "",
         post.link,
         publishedDate,
         category
