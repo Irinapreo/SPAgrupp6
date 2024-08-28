@@ -1,14 +1,12 @@
-const db = require("./db");
+const db = require("./db").promise;
 
-exports.getArticles = (req, res) => {
-    const order = req.query.order === 'desc' ? 'DESC' : 'ASC';
-    
+exports.getArticles = async (req, res) => {
+  try {
+    const order = req.query.order === "desc" ? "DESC" : "ASC";
     const query = `SELECT * FROM articles ORDER BY Published ${order}`;
-    
-    db.query(query, (err, results) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-        res.json(results);
-    });
+    const [results] = await db.query(query); // Använd async/await här
+    res.json(results); // Returnera resultaten som JSON
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };

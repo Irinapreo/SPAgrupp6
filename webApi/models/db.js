@@ -1,10 +1,20 @@
 const mysql = require("mysql2");
+const dotenv = require("dotenv");
+dotenv.config();
+
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "sys23m",
+//   database: "newssite",
+// });
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "sys23m",
-  database: "newssite",
+  host: process.env.DB_HOST, // Byt ut mot RDS-endpoint
+  user: process.env.DB_USER, // Byt ut mot ditt RDS-användarnamn
+  password: process.env.DB_PASS, // Byt ut mot ditt RDS-lösenord
+  database: process.env.DB_NAME, // Byt ut mot ditt RDS-databasnamn
+  port: process.env.DB_PORT,
 });
 
 db.connect((err) => {
@@ -12,11 +22,10 @@ db.connect((err) => {
     console.error("Error connecting to the database:", err.stack);
     return;
   }
-  console.log("Connected to the database");
+  console.log("Connected to the AWS RDS database");
 
   const dropTableQuery = `DROP TABLE IF EXISTS articles`;
 
-  // Skapa artikeltabell om den inte finns
   const articlesTableQuery = `CREATE TABLE IF NOT EXISTS articles (
     Title VARCHAR(255) NOT NULL,
     Summary TEXT,
@@ -29,7 +38,7 @@ db.connect((err) => {
     if (err) {
       console.error("Error dropping articles table after connection:", err);
     } else {
-      console.log('Table "articles" droped. Result:', result);
+      console.log('Table "articles" dropped. Result:', result);
     }
   });
 
@@ -41,7 +50,6 @@ db.connect((err) => {
     }
   });
 
-  // Skapa användartabell om den inte finns
   const usersTableQuery = `CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(255) PRIMARY KEY,
     password VARCHAR(255) NOT NULL

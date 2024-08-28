@@ -1,20 +1,38 @@
-const argon2 = require("argon2");
 const db = require("./db");
 
-const createArticle = (Title, Summary, Link, Published, Topic, callback) => {
+const createArticle = async (Title, Summary, Link, Published, Topic) => {
   const query = `INSERT INTO articles (Title, Summary, Link, Published, Topic) VALUES (?, ?, ?, ?, ?)`;
-  db.query(query, [Title, Summary, Link, Published, Topic], callback);
+  return new Promise((resolve, reject) => {
+    db.query(
+      query,
+      [Title, Summary, Link, Published, Topic],
+      (err, results) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(results);
+      }
+    );
+  });
 };
 
-const getArticles = (sortBy, limit, callback) => {
-  let query = "SELECT * FROM articles";
-  if (sortBy === "newest") {
-    query += " ORDER BY Published DESC";
-  }
-  if (limit) {
-    query += ` LIMIT ${parseInt(limit, 10)}`;
-  }
-  db.query(query, callback);
+const getArticles = async (sortBy, limit) => {
+  return new Promise((resolve, reject) => {
+    let query = "SELECT * FROM articles";
+    if (sortBy === "newest") {
+      query += " ORDER BY Published DESC";
+    }
+    if (limit) {
+      query += ` LIMIT ${parseInt(limit, 10)}`;
+    }
+
+    db.query(query, (error, results) => {
+      if (error) {
+        return reject(error); // Vid fel, avbryt och returnera felet.
+      }
+      resolve(results); // Annars returnera resultaten.
+    });
+  });
 };
 
 module.exports = { createArticle, getArticles };

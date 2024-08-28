@@ -3,18 +3,17 @@ const insertPost = require("../models/articleModel").createArticle;
 
 // Mapping of words to categories
 const categoryMapping = {
-  "halsa": "Hälsa",
-  "samhallekonflikter": "Samhälle och Konflikter",
-  "miljo": "Miljö",
-  "vetenskapteknik": "Vetenskap och Teknik",
-  "livsstillfritt": "Livsstil och Fritid",
-  "ekonomi": "Ekonomi",
-  "religion": "Religion",
-  "sport": "Sport",
-  "varlden": "Världen",
-  "ledare": "Ledare",
-  "kultur": "Kultur",
-
+  halsa: "Hälsa",
+  samhallekonflikter: "Samhälle och Konflikter",
+  miljo: "Miljö",
+  vetenskapteknik: "Vetenskap och Teknik",
+  livsstillfritt: "Livsstil och Fritid",
+  ekonomi: "Ekonomi",
+  religion: "Religion",
+  sport: "Sport",
+  varlden: "Världen",
+  ledare: "Ledare",
+  kultur: "Kultur",
 };
 
 const fetchAndStoreRSS = async (req, res) => {
@@ -26,7 +25,11 @@ const fetchAndStoreRSS = async (req, res) => {
     for (let post of posts) {
       // Filter out posts without necessary fields
       if (!post.title || !post.link || !post.pubDate) {
-        console.log(`Skipping post due to missing fields: ${post.title || "Unknown title"}`);
+        console.log(
+          `Skipping post due to missing fields: ${
+            post.title || "Unknown title"
+          }`
+        );
         continue;
       }
 
@@ -34,7 +37,7 @@ const fetchAndStoreRSS = async (req, res) => {
       let category = "General";
 
       // Split the URL by '/' and check each part
-      const urlSegments = post.link.toLowerCase().split('/'); // Convert URL to lowercase
+      const urlSegments = post.link.toLowerCase().split("/"); // Convert URL to lowercase
       for (const segment of urlSegments) {
         if (categoryMapping[segment]) {
           category = categoryMapping[segment];
