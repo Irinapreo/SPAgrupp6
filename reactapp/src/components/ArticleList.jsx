@@ -65,10 +65,7 @@ const ArticleList = () => {
 
     const topicDisplayNames = {
         "general": "General",
-        "halsa": "Hälsa",
-        "livsstillfritt": "Livsstil och Fritid",
         "ekonomi": "Ekonomi",
-        "religion": "Religion",
         "sport": "Sport",
         "varlden": "Världen",
         "ledare": "Ledare",
