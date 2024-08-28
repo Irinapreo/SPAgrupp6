@@ -63,13 +63,13 @@ const ArticleList = () => {
         setItemsPerPage(e.target.value);
     };
 
-    const topicDisplayNames = {
-        "general": "General",
+    const topicDisplayNames = {    
+        "Världen": "Världen",
         "ekonomi": "Ekonomi",
         "sport": "Sport",
-        "varlden": "Världen",
         "ledare": "Ledare",
         "kultur": "Kultur",
+        "general": "Övrigt",
     };
 
     const highlightText = (text, highlight) => {

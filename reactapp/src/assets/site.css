@@ -309,7 +309,7 @@ input[type="password"] {
   padding: 10px;
   background-color: #cccdbf;
   border:
-    3px solid #7cc8d7;
+    2px solid #1F2833;
   border-radius: 3px;
   font-size: 16px;
 }
@@ -428,6 +428,11 @@ color: #120A15;
 background-color: #E4EDFC;
 border-color: #1861ac;
 border-radius: 100px;
+}
+
+body.light-theme p2{
+  color: #120A15;
+  background-color: rgba(228, 237, 252, 0.5);
 }
 
 body.light-theme .card {
