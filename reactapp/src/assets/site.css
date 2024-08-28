@@ -528,11 +528,18 @@ body.light-theme .article-count {
 .noAccount {
   font-size: 16px;
   font-weight: bolder;
-  color: rgb(10, 10, 10);
+  color: #E4EDFC;
 }
 
 .regLink {
   font-size: 16px;
   font-weight: bold;
   color: rgb(220, 21, 28);
+}
+
+p2 {
+  font-size: 1em;
+  margin-top: 15px;
+  text-align: center;
+  background-color: rgba(31, 40, 51, 0.8);
 }

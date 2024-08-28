@@ -32,7 +32,7 @@ const Login = ({onLogin}) => {
       <input className="custom-input" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
       <input className="custom-input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button className="custom-input" onClick={handleLogin}>Login</button>
-        <p className='noAccount'>Har du inget konto? <Link to="/register" className='regLink'>Tryck här för att registrera dig</Link></p>
+        <p2 className='noAccount'>Har du inget konto? <Link to="/register" className='regLink'>Tryck här för att registrera dig</Link></p2>
       </div>
       
     </div>

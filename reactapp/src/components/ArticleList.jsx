@@ -173,7 +173,7 @@ const ArticleList = () => {
                         </div>
                     ))
                 ) : (
-                    <p>Inga artiklar hittades.</p>
+                    <p2>Inga artiklar hittades.</p2>
                 )}
             </div>
         </div>
