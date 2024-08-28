@@ -41,16 +41,16 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
                 <div className="navbar-collapse">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link text-dark" to="/">Home</Link>
+                            <Link className="nav-link text-dark" to="/">Hem</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link text-dark" to="/kontakt">Kontakt</Link>
                         </li>
                         <li className="nav-item">
                             {isAuthenticated ? (
-                                <Link className="nav-link text-dark" onClick={onLogout}>Logout</Link>                                                                    
+                                <Link className="nav-link text-dark" onClick={onLogout}>Logga ut</Link>                                                                    
                             ) : (
-                                <Link className="nav-link text-dark" to="/login">Login</Link>
+                                <Link className="nav-link text-dark" to="/login">Logga in</Link>
                             )}
                         </li>
                     </ul>

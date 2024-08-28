@@ -63,16 +63,13 @@ const ArticleList = () => {
         setItemsPerPage(e.target.value);
     };
 
-    const topicDisplayNames = {
-        "general": "General",
-        "halsa": "Hälsa",
-        "livsstillfritt": "Livsstil och Fritid",
+    const topicDisplayNames = {    
+        "Världen": "Världen",
         "ekonomi": "Ekonomi",
-        "religion": "Religion",
         "sport": "Sport",
-        "varlden": "Världen",
         "ledare": "Ledare",
         "kultur": "Kultur",
+        "general": "Övrigt",
     };
 
     const highlightText = (text, highlight) => {
@@ -173,7 +170,7 @@ const ArticleList = () => {
                         </div>
                     ))
                 ) : (
-                    <p>Inga artiklar hittades.</p>
+                    <p2>Inga artiklar hittades.</p2>
                 )}
             </div>
         </div>

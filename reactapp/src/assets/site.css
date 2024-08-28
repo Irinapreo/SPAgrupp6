@@ -309,7 +309,7 @@ input[type="password"] {
   padding: 10px;
   background-color: #cccdbf;
   border:
-    3px solid #7cc8d7;
+    2px solid #1F2833;
   border-radius: 3px;
   font-size: 16px;
 }
@@ -430,6 +430,11 @@ border-color: #1861ac;
 border-radius: 100px;
 }
 
+body.light-theme p2{
+  color: #120A15;
+  background-color: rgba(228, 237, 252, 0.5);
+}
+
 body.light-theme .card {
 color: #120A15;
 background-color: #E4EDFC;
@@ -528,11 +533,18 @@ body.light-theme .article-count {
 .noAccount {
   font-size: 16px;
   font-weight: bolder;
-  color: rgb(10, 10, 10);
+  color: #E4EDFC;
 }
 
 .regLink {
   font-size: 16px;
   font-weight: bold;
   color: rgb(220, 21, 28);
+}
+
+p2 {
+  font-size: 1em;
+  margin-top: 15px;
+  text-align: center;
+  background-color: rgba(31, 40, 51, 0.8);
 }
