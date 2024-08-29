@@ -17,12 +17,14 @@ const ArticleList = () => {
                     searchString,
                     topic,
                     sortBy,
+                    itemsPerPage,
                 });
                 const params = new URLSearchParams();
                 if (searchString) params.append('searchString', searchString);
                 if (topic) params.append('topic', topic);
                 if (sortBy) params.append('sortBy', sortBy);
                 if (itemsPerPage) params.append('limit', itemsPerPage);
+                console.log('Generated URL:', `http://localhost:3000/api/articles?${params.toString()}`);
 
                 const response = await fetch(`http://localhost:3000/api/articles?${params.toString()}`);
                 if (!response.ok) {
@@ -65,12 +67,12 @@ const ArticleList = () => {
 
     const topicDisplayNames = {
         "general": "General",
-        "halsa": "Hälsa",
-        "livsstillfritt": "Livsstil och Fritid",
+        "hälsa": "Hälsa",
+        "livsstil och fritid": "Livsstil och Fritid",
         "ekonomi": "Ekonomi",
         "religion": "Religion",
         "sport": "Sport",
-        "varlden": "Världen",
+        "världen": "Världen",
         "ledare": "Ledare",
         "kultur": "Kultur",
     };
@@ -109,14 +111,14 @@ const ArticleList = () => {
             <div className="row">
                 <div className="col-md-12">
                     <button
-                        className="btn btn-primary"
+                        className={`btn btn-primary ${topic === '' ? 'btn-selected' : ''}`}
                         onClick={() => handleTopicChange('')}>
                         Visa Alla
                     </button>
                     {Object.entries(topicDisplayNames).map(([key, value]) => (
                         <button
                             key={key}
-                            className="btn btn-primary"
+                            className={`btn btn-primary ${topic === key ? 'btn-selected' : ''}`}
                             onClick={() => handleTopicChange(key)}>
                             {value}
                         </button>
