@@ -14,20 +14,30 @@ const createUserTable = () => {
   });
 };
 
-const registerUser = (username, password, callback) => {
+const registerUser = (username, password) => {
   const hashedPassword = bcrypt.hashSync(password, 8);
   const query = `INSERT INTO users (username, password) VALUES (?, ?)`;
 
-  db.query(query, [username, hashedPassword], callback);
+  return new Promise((resolve, reject) => {
+    db.query(query, [username, hashedPassword], (err) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve();
+    });
+  });
 };
 
-const findUserByUsername = (username, callback) => {
+const findUserByUsername = (username) => {
   const query = `SELECT * FROM users WHERE username = ?`;
-  db.query(query, [username], (err, results) => {
-    if (err) {
-      return callback(err);
-    }
-    callback(null, results[0]);
+
+  return new Promise((resolve, reject) => {
+    db.query(query, [username], (err, results) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(results[0]);
+    });
   });
 };
 

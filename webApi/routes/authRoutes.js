@@ -1,5 +1,4 @@
 const express = require("express");
-const argon2 = require("argon2");
 const router = express.Router();
 const authController = require("../controllers/authController");
 const authenticateToken = require("../utils/jwtMiddleware");

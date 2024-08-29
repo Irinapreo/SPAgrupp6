@@ -1,4 +1,5 @@
 ﻿const express = require("express");
+const db = require("./models/db");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
@@ -27,6 +28,14 @@ app.use("/api/articles", articleRoutes);
 
 app.use("/api/protected", jwtMiddleware, (req, res) => {
   res.json({ message: "This is a protected route", user: req.user });
+});
+
+db.connect((error) => {
+  if (error) {
+    console.error("Error connecting to the database:", error);
+    return;
+  }
+  console.log("Connected to the AWS RDS database");
 });
 
 app.listen(port, () => {

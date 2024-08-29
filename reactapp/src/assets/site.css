@@ -542,6 +542,14 @@ body.light-theme .article-count {
   color: rgb(220, 21, 28);
 }
 
+.btn.btn-primary.btn-selected {
+  background-color: #0056b3;
+  /* En mörkare blå */
+  color: white;
+  /* Gör texten vit */
+  border-color: #004085;
+  /* Ändra gränsfärgen om nödvändigt */
+
 p2 {
   font-size: 1em;
   margin-top: 15px;
