@@ -13,7 +13,7 @@ const Privacy = () => {
                     <form method="post" action="/kontakt/borat" className="privacy-form">
                         <div className="form-group">
                             <label htmlFor="name">Namn:</label>
-                            <input type="text" id="name" name="name" required />
+                            <input type="email" id="name" name="name" required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="email">E-post:</label>

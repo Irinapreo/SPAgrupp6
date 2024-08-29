@@ -11,7 +11,7 @@ const Logout = ({ onLogout }) => {
     navigate('/login');
   }, [onLogout, navigate]);
 
-  return <div>Logging out...</div>;
+  return <div>Loggar ut...</div>;
 };
 
 Logout.propTypes = {
