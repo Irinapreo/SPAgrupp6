@@ -1,0 +1,111 @@
+@import './site.css';
+@import './privacy.css';
+
+.navbar-nav {
+  display: flex;
+  list-style-type: none;
+  margin-top: 45px;
+  position: fixed;
+  left: -15px;
+  justify-content: flex-start;
+}
+
+.navbar {
+  display: flex;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1px;
+  margin-top: 15px;
+  z-index: 999;
+}
+
+.navbar-nav .nav-item+.nav-item {
+  justify-content: flex-start;
+  margin-left: 15px;
+  /* Lägg till mellanrum mellan länkar */
+
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+}
+
+.navbar-custom {
+  background-color: rgba(31, 40, 51, 1);
+}
+
+.navbar-brand {
+  font-family: 'DM Serif Text', serif;
+  font-size: 5vh;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+
+.navbar-light .navbar-brand {
+  color: #45A29E;
+}
+
+.navbar-light .navbar-brand:hover {
+  color: #45A29E !important;
+  text-shadow: 0 0 15px #fff;
+}
+
+body.light-theme .navbar {
+  background-color: rgba(228, 237, 252, 1) !important;
+}
+
+body.light-theme .navbar-brand,
+body.light-theme .text-dark {
+  color: #754585 !important;
+}
+
+body.light-theme .navbar-brand:hover {
+  color: #754585 !important;
+  text-shadow: 0 0 30px #754585;
+}
+
+body.light-theme .nav-link {
+  font-size: 18px;
+  color: #754585 !important;
+}
+
+body.light-theme .nav-link:hover {
+  color: #1861ac !important;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
